@@ -45,3 +45,4 @@ firebase.auth().getRedirectResult().then(function(result) {
   var credential = error.credential;
   // ...
 });
+
