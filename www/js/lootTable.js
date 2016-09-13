@@ -35,5 +35,9 @@ var loot = [
     "name": "batteries",
     "lid": 7
   },
+  {
+    "name": "water",
+    "lid": 8
+  },
 
 ];
