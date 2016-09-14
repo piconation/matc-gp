@@ -5,10 +5,12 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title></title>
 
+    <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
 
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
@@ -27,6 +29,7 @@
     <script src="js/thisionic.js"></script>
     <script src="js/lootChance.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.3.2/firebase.js"></script>
+
 
     <script>
       // This is called with the results from from FB.getLoginStatus().
@@ -126,11 +129,10 @@
      the JavaScript SDK to present a graphical Login button that triggers
      the FB.login() function when clicked.
     -->
-        <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-        </fb:login-button>
+        <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
       </ion-content>
     </ion-pane>
-    <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+
     <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase-database.js"></script>
@@ -147,5 +149,6 @@
 
     <div id="status">
     </div>
+
   </body>
 </html>
