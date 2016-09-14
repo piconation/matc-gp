@@ -13,7 +13,6 @@
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
     -->
-      <!--  -->
 
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
@@ -26,6 +25,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/core.js"></script>
     <script src="js/app.js"></script>
     <script src="js/thisionic.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.3.2/firebase.js"></script>
 
     <script>
       // This is called with the results from from FB.getLoginStatus().
@@ -129,6 +129,16 @@
       </ion-content>
     </ion-pane>
 
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyD8yymwpm2Vdn3-iZ_xhDqSpyuqzlKNTSo",
+        authDomain: "matc-gp.firebaseapp.com",
+        databaseURL: "https://matc-gp.firebaseio.com",
+        storageBucket: "matc-gp.appspot.com",
+      };
+      firebase.initializeApp(config);
+    </script>
 
     <div id="status">
     </div>
