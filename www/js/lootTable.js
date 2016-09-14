@@ -4,11 +4,11 @@
 
 var loot = [
   {
-    "name": "metal",
+    "name": "electronics",
     "lid": 0
   },
   {
-    "name": "food",
+    "name": "batteries",
     "lid": 1
   },
   {
@@ -20,11 +20,11 @@ var loot = [
     "lid": 3
   },
   {
-    "name": "wires",
+    "name": "food",
     "lid": 4
   },
   {
-    "name": "electronics",
+    "name": "water",
     "lid": 5
   },
   {
@@ -32,11 +32,11 @@ var loot = [
     "lid": 6
   },
   {
-    "name": "batteries",
+    "name": "wire",
     "lid": 7
   },
   {
-    "name": "water",
+    "name": "metal",
     "lid": 8
   },
 
