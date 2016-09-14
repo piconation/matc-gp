@@ -31,8 +31,45 @@
     <script src="https://www.gstatic.com/firebasejs/3.3.2/firebase.js"></script>
 
 
+
+  </head>
+  <body ng-app="starter">
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7&appId=1760337584239123";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+    <ion-pane>
+      <ion-header-bar class="bar-stable">
+        <h1 class="title">Survival Gears</h1>
+      </ion-header-bar>
+      <ion-content>
+        <div ng-app="starter"><button class="button button-block">Start Game</button></div>
+        <div ng-app="starter"><button class="button button-block">Load Game</button></div>
+        <div ng-app="starter"><button class="button button-block">Settings</button></div>
+        <div ng-app="starter"><button class="button button-block" data-component="looting">Loot Test</button></div>
+      </ion-content>
+    </ion-pane>
+
+    <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase-database.js"></script>
     <script>
-      // This is called with the results from from FB.getLoginStatus().
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyD8yymwpm2Vdn3-iZ_xhDqSpyuqzlKNTSo",
+        authDomain: "matc-gp.firebaseapp.com",
+        databaseURL: "https://matc-gp.firebaseio.com",
+        storageBucket: "matc-gp.appspot.com",
+      };
+      firebase.initializeApp(config);
+    </script>
+
+    <script>
+      // This is called with the results from FB.getLoginStatus().
       function statusChangeCallback(response) {
         console.log('statusChangeCallback');
         console.log(response);
@@ -66,7 +103,7 @@
 
       window.fbAsyncInit = function() {
         FB.init({
-          appId      : '{your-app-id}',
+          appId      : '{1760337584239123}',
           cookie     : true,  // enable cookies to allow the server to access
                               // the session
           xfbml      : true,  // parse social plugins on this page
@@ -111,41 +148,13 @@
         });
       }
     </script>
-
-  </head>
-  <body ng-app="starter">
-
-    <ion-pane>
-      <ion-header-bar class="bar-stable">
-        <h1 class="title">Survival Gears</h1>
-      </ion-header-bar>
-      <ion-content>
-        <div ng-app="starter"><button class="button button-block">Start Game</button></div>
-        <div ng-app="starter"><button class="button button-block">Load Game</button></div>
-        <div ng-app="starter"><button class="button button-block">Settings</button></div>
-        <div ng-app="starter"><button class="button button-block" data-component="looting">Loot Test</button></div>
-        <!--
+    <!--
      Below we include the Login Button social plugin. This button uses
      the JavaScript SDK to present a graphical Login button that triggers
      the FB.login() function when clicked.
     -->
-        <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
-      </ion-content>
-    </ion-pane>
+    <div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="false"></div>
 
-    <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase-database.js"></script>
-    <script>
-      // Initialize Firebase
-      var config = {
-        apiKey: "AIzaSyD8yymwpm2Vdn3-iZ_xhDqSpyuqzlKNTSo",
-        authDomain: "matc-gp.firebaseapp.com",
-        databaseURL: "https://matc-gp.firebaseio.com",
-        storageBucket: "matc-gp.appspot.com",
-      };
-      firebase.initializeApp(config);
-    </script>
 
     <div id="status">
     </div>
