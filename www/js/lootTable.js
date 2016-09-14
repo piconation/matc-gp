@@ -5,39 +5,53 @@
 var loot = [
   {
     "name": "electronics",
-    "lid": 0
+    "lid": 0,
+    "lootCount": 0
   },
   {
     "name": "batteries",
-    "lid": 1
+    "lid": 1,
+    "lootCount": 0
   },
   {
     "name": "medkit",
-    "lid": 2
+    "lid": 2,
+    "lootCount": 0
   },
   {
     "name": "fuel",
-    "lid": 3
+    "lid": 3,
+    "lootCount": 0
   },
   {
     "name": "food",
-    "lid": 4
+    "lid": 4,
+    "lootCount": 0
+  },
+  {
+    "name": "tools",
+    "lid": 5,
+    "lootCount": 0
   },
   {
     "name": "water",
-    "lid": 5
+    "lid": 6,
+    "lootCount": 0
   },
   {
     "name": "wood",
-    "lid": 6
+    "lid": 7,
+    "lootCount": 0
   },
   {
     "name": "wire",
-    "lid": 7
+    "lid": 8,
+    "lootCount": 0
   },
   {
     "name": "metal",
-    "lid": 8
+    "lid": 9,
+    "lootCount": 0
   },
 
 ];
