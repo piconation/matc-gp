@@ -18,4 +18,9 @@ var locations = [
     'sortkey': "establish odds",
     'name': 'Junkyard',
   },
+  {
+    'id': 3,
+    'sortkey': "establish odds",
+    'name': '',
+  }
 ];
