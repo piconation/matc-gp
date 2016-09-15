@@ -41,9 +41,79 @@
 
 
   </head>
+  <script type="text/javascript">
+    var app = angular.module("demo", []);
 
+    app.controller("modalDemo", function($scope, $rootScope) {
+      $scope.leftVisible = false;
+      $scope.rightVisible = false;
 
-  <body ng-app="starter">
+      $scope.close = function() {
+        $scope.leftVisible = false;
+        $scope.rightVisible = false;
+      };
+
+      $scope.showLeft = function(e) {
+        $scope.leftVisible = true;
+        e.stopPropagation();
+      };
+
+      $scope.showRight = function(e) {
+        $scope.rightVisible = true;
+        e.stopPropagation();
+      }
+
+      $rootScope.$on("documentClicked", _close);
+      $rootScope.$on("escapePressed", _close);
+
+      function _close() {
+        $scope.$apply(function() {
+          $scope.close();
+        });
+      }
+    });
+
+    app.run(function($rootScope) {
+      document.addEventListener("keyup", function(e) {
+        if (e.keyCode === 27)
+          $rootScope.$broadcast("escapePressed", e.target);
+      });
+
+      document.addEventListener("click", function(e) {
+        $rootScope.$broadcast("documentClicked", e.target);
+      });
+    });
+
+    app.directive("menu", function() {
+      return {
+        restrict: "E",
+        template: "<div ng-class='{ show: visible, left: alignment === \"left\", right: alignment === \"right\" }' ng-transclude></div>",
+        transclude: true,
+        scope: {
+          visible: "=",
+          alignment: "@"
+        }
+      };
+    });
+
+    app.directive("menuItem", function() {
+      return {
+        restrict: "E",
+        template: "<div ng-click='navigate()' ng-transclude></div>",
+        transclude: true,
+        scope: {
+          hash: "@"
+        },
+        link: function($scope) {
+          $scope.navigate = function() {
+            window.location.hash = $scope.hash;
+          }
+        }
+      }
+    });
+  </script>
+
+  <body ng-app="starter", ng-controller="modalDemo">
 
     <ion-pane>
       <ion-header-bar class="bar-stable">
@@ -54,6 +124,9 @@
       <!--</ion-view>-->
       <ion-content>
         <div ng-class='{ show: visible, left: alignment === \"left\", right: alignment === \"right\" }' ng-transclude></div>
+
+        <button ng-click="showLeft($event)">Menu</button>
+
         <menu visible="visible" alignment="left">
           <menu-item hash="first-page">First Page></menu-item>
           <menu-item hash="second-page">Second Page></menu-item>
