@@ -23,10 +23,9 @@ angular.module('starter', ['ionic'])
   });
 })
 
+//This is the code to allow users to sign in with their Google account credentials:
 var provider = new firebase.auth.GoogleAuthProvider();
-
 firebase.auth().signInWithRedirect(provider);
-
 firebase.auth().getRedirectResult().then(function(result) {
   if (result.credential) {
     // This gives you a Google Access Token. You can use it to access the Google API.
@@ -46,18 +45,23 @@ firebase.auth().getRedirectResult().then(function(result) {
   // ...
 });
 
+//This is the code to allow users to create a user account with their email address:
+firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  // ...
+});
+
+//This is the code to allow users to sign in with their email address:
 firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
   // Handle Errors here.
   var errorCode = error.code;
   var errorMessage = error.message;
   // ...
 });
-firebase.auth().signOut().then(function() {
-  // Sign-out successful.
-}, function(error) {
-  // An error happened.
-});
 
+//This is the code to allow users to sign in using their Facebook account:
 var provider = new firebase.auth.FacebookAuthProvider();
 firebase.auth().signInWithPopup(provider).then(function(result) {
   // This gives you a Facebook Access Token. You can use it to access the Facebook API.
@@ -74,4 +78,11 @@ firebase.auth().signInWithPopup(provider).then(function(result) {
   // The firebase.auth.AuthCredential type that was used.
   var credential = error.credential;
   // ...
+});
+
+//This is the code to allow users to sign out of their account:
+firebase.auth().signOut().then(function() {
+  // Sign-out successful.
+}, function(error) {
+  // An error happened.
 });
