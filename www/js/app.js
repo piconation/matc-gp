@@ -13,7 +13,7 @@ angular.module('starter', ['ionic'])
     $stateProvider
       .state('locations', {
         url: "/locations",
-        template: "<location-list></location-list>",
+        template: "<location-list></location-list>"
       })
       .state('component2', {
         url: "/component2",
