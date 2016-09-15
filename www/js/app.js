@@ -7,7 +7,7 @@ angular.module('starter', ['ionic'])
   .config(function($stateProvider, $urlRouterProvider) {
     //
     // For any unmatched url, redirect to /state1
-    $urlRouterProvider.otherwise("/index");
+   // $urlRouterProvider.otherwise("/index");
     //
     // Now set up the states
     $stateProvider
