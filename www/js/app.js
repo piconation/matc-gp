@@ -4,6 +4,22 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 angular.module('starter', ['ionic'])
+  .config(function($stateProvider, $urlRouterProvider) {
+    //
+    // For any unmatched url, redirect to /state1
+    $urlRouterProvider.otherwise("/index");
+    //
+    // Now set up the states
+    $stateProvider
+      .state('locations', {
+        url: "/locations",
+        template: "<location-list></location-list>"
+      })
+      .state('component2', {
+        url: "/component2",
+        template: "<component-two></component-two>"
+      });
+  })
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -21,7 +37,7 @@ angular.module('starter', ['ionic'])
       StatusBar.styleDefault();
     }
   });
-})
+});
 
 //This is the code to allow users to sign in with their Google account credentials:
 var provider = new firebase.auth.GoogleAuthProvider();
