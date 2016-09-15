@@ -123,6 +123,10 @@ angular.module('starter', ['ionic'])
         url: "/locations",
         template: "<location-list></location-list>"
       })
+      .state('inventory', {
+        url: "/inventory",
+        template: "<inventory-list></inventory-list>"
+      })
       .state('component2', {
         url: "/component2",
         template: "<component-two></component-two>"
