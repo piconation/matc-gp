@@ -7,7 +7,7 @@
 var app = angular.module("starter", ["firebase"]);
 
 app.controller("SampleCtrl", function($scope, $firebaseObject) {
-  var ref = new Firebase("https://<YOUR-FIREBASE-APP>.firebaseio.com");
+  var ref = new Firebase("https://matc-gp.firebaseio.com");
 
   // download the data into a local object
   $scope.data = $firebaseObject(ref);
@@ -115,7 +115,7 @@ angular.module('starter', ['ionic'])
   .config(function($stateProvider, $urlRouterProvider) {
     //
     // For any unmatched url, redirect to /state1
-   // $urlRouterProvider.otherwise("/index");
+    // $urlRouterProvider.otherwise("/index");
     //
     // Now set up the states
     $stateProvider
