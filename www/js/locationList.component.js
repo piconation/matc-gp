@@ -4,13 +4,20 @@
 
 
 
-(function(){
+(function () {
 
   angular.module('starter')
     .component('locationList', { // the tag for using this is <location-list>
       templateUrl: "templates/locations.html",
       controller: locationController
-    });
+    }).config(locationConfig);
+
+  function locationConfig($stateProvider) {
+    $stateProvider.state('locations', {
+      url: '/locations',
+      template: "<location-list></location-list>"
+    })
+  }
 
   function locationController() {
 
@@ -44,5 +51,5 @@
       }
     ];
   }
-  
+
 })();
