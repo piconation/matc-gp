@@ -8,8 +8,17 @@
       templateUrl: "templates/homebase.html",
       controller: homebaseController
     })
-  function homebaseController(user, $state){
-    var self = this;
-    self.
+    .config(homebaseConfig);
+  
+  function homebaseConfig($stateProvider) {
+    $stateProvider.state('homebase', {
+      url: '/homebase',
+      template: "<homebase></homebase>"
+    })
   }
-})
+  
+  function homebaseController(user, $state) {
+    var self = this;
+    self.homebase = this.homebase;
+  }
+});
