@@ -7,7 +7,15 @@
     .component('inventoryList', { // the tag for using this is <inventory-list>
       templateUrl: "templates/inventory.html",
       controller: invController
-    });
+    })
+    .config(invController);
+
+  function invController($stateProvider) {
+    $stateProvider.state('inventory', {
+      url: '/inventory',
+      template: "<inventory></inventory>"
+    })
+  }
 
   function invController() {
 
