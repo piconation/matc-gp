@@ -9,16 +9,16 @@
       controller: homebaseController
     })
     .config(homebaseConfig);
-  
+
   function homebaseConfig($stateProvider) {
     $stateProvider.state('homebase', {
       url: '/homebase',
       template: "<homebase></homebase>"
     })
   }
-  
+
   function homebaseController(user, $state) {
     var self = this;
-    self.homebase = this.homebase;
+    //self.homebase = this.homebase;
   }
-});
+})();

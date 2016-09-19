@@ -64,7 +64,7 @@
       $scope.showRight = function(e) {
         $scope.rightVisible = true;
         e.stopPropagation();
-      }
+      };
 
       $rootScope.$on("documentClicked", _close);
       $rootScope.$on("escapePressed", _close);
