@@ -2,15 +2,14 @@
  * Created by isaacwatts on 9/13/16.
  */
 
-
-
 (function () {
 
   angular.module('starter')
     .component('locationList', { // the tag for using this is <location-list>
       templateUrl: "templates/locations.html",
       controller: locationController
-    }).config(locationConfig);
+    })
+    .config(locationConfig);
 
   function locationConfig($stateProvider) {
     $stateProvider.state('locations', {

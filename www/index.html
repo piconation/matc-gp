@@ -11,26 +11,17 @@
 
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.js"></script>-->
 
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
 
-    <!-- AngularJS -->
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>-->
-
-    <!-- Firebase -->
-    <!--<script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>-->
 
     <!-- AngularFire -->
     <script src="https://cdn.firebase.com/libs/angularfire/2.0.2/angularfire.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.3.2/firebase.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!--<script src="https://apis.google.com/js/platform.js" async defer></script>-->
 
     <!-- your app's js -->
     <script src="js/app.js"></script>
@@ -119,8 +110,11 @@
   <body ng-app="starter">
     <ion-pane>
       <ion-header-bar class="bar-stable">
+        <button class="left"><span class="ion-ios-location"></span></button>
         <h1 class="title">Survival Gears</h1>
-        <menu>
+        <button class="right"><span class="ion-flag"></span></button>
+      </ion-header-bar>
+        <div class="menu">
           <div ng-app="starter"><button class="button button-block">Start Game</button></div>
           <div ng-app="starter"><button class="button button-block">Load Game</button></div>
           <div ng-app="starter"><button class="button button-block">Settings</button></div>
@@ -131,14 +125,16 @@
              the FB.login() function when clicked.
            -->
           <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-          </fb:login-button><br><br>
+          </fb:login-button>
+          <br><br>
           <div class="g-signin2" data-onsuccess="onSignIn"></div><br>
 
           <a href="#" onclick="signOut();">Signout</a>
-        </menu>
-      </ion-header-bar>
+        </div>
+
       <location-list></location-list>
-      <homebase></homebase>
+      <!--<homebase></homebase>-->
+      <inventory></inventory>
     </ion-pane>
 
     <div id="status"></div>

@@ -9,7 +9,7 @@ $.getScript("js/lootTable.js", function(){
 var latestRoll = '';
 var playerData =[];
 
-$(document).ready(function() {
+$(window).load(function() {
   $('[data-component="looting"]').each(function() {
     var looting = new components.Looting(this);
   });
