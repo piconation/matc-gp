@@ -4,7 +4,7 @@
 (function(){
 
   angular.module('starter')
-    .component('inventoryList', { // the tag for using this is <inventory-list>
+    .component('inventory', { // the tag for using this is <inventory-list>
       templateUrl: "templates/inventory.html",
       controller: invController
     })
