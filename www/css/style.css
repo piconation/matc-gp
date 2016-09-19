@@ -1,7 +1,37 @@
 
-menu {
-  text-align: center;
+.menu {
+  position: absolute;
+  z-index: 10;
   margin: 0 auto;
+  text-align: center;
+  left: 0px;
+  right: 0px;
+  max-width: 200px;
   top: 50px;
+}
+ion-header-bar button {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#11c1f3+0,87e0fd+58,53cbf1+60,87e0fd+100 */
+  background: #11c1f3; /* Old browsers */
+  background: -moz-linear-gradient(top,  #11c1f3 0%, #87e0fd 58%, #53cbf1 60%, #87e0fd 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  #11c1f3 0%,#87e0fd 58%,#53cbf1 60%,#87e0fd 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  #11c1f3 0%,#87e0fd 58%,#53cbf1 60%,#87e0fd 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#11c1f3', endColorstr='#87e0fd',GradientType=0 ); /* IE6-9 */
+
+
+  border: solid 1px #000;
+  border-radius: 5px;
+  width: 40px;
+}
+homebase .pane {
+  float: right;
+  max-width: 280px;
   position: relative;
+}
+button.left{
+  float: left;
+}
+button.right{
+  float: right;
+  right: 6px;
+  position: absolute;
 }
