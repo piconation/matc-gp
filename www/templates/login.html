@@ -1,0 +1,19 @@
+<ion-pane>
+  <div class="menu">
+    <div ng-app="starter"><button class="button button-block">Start Game</button></div>
+    <div ng-app="starter"><button class="button button-block">Load Game</button></div>
+    <div ng-app="starter"><button class="button button-block">Settings</button></div>
+    <div ng-app="starter"><button class="button button-block" data-component="looting">Loot Test</button></div>
+    <!--
+       Below we include the Login Button social plugin. This button uses
+       the JavaScript SDK to present a graphical Login button that triggers
+       the FB.login() function when clicked.
+     -->
+    <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+    </fb:login-button>
+    <br><br>
+    <div class="g-signin2" data-onsuccess="onSignIn"></div><br>
+
+    <a href="#" onclick="signOut();">Signout</a>
+  </div>
+</ion-pane>
