@@ -98,35 +98,30 @@
   });
 </script>
 
-<body ng-app="starter">
-<menu>
-  <ion-pane>
-    <ion-header-bar class="bar-stable">
-      <h1 class="title">Survival Gears</h1>
+  <body ng-app="starter">
+    <ion-pane>
+      <ion-header-bar class="bar-stable">
+        <button class="left"><span class="ion-ios-location"></span></button>
+        <h1 class="title">Survival Gears</h1>
+        <button class="right"><span class="ion-flag"></span></button>
+      </ion-header-bar>
+      <div class="menu">
+        <div ng-app="starter"><button class="button button-block">Start Game</button></div>
+        <div ng-app="starter"><button class="button button-block">Load Game</button></div>
+        <div ng-app="starter"><button class="button button-block">Settings</button></div>
+        <div ng-app="starter"><button class="button button-block" data-component="looting">Loot Test</button></div>
+        <!--
+           Below we include the Login Button social plugin. This button uses
+           the JavaScript SDK to present a graphical Login button that triggers
+           the FB.login() function when clicked.
+         -->
+        <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+        </fb:login-button>
+        <br><br>
+        <div class="g-signin2" data-onsuccess="onSignIn"></div><br>
 
-      <div><button class="button button-block">Start Game</button></div>
-      <div><button class="button button-block">Load Game</button></div>
-      <div><button class="button button-block">Settings</button></div>
-      <div><button class="button button-block" data-component="looting">Loot Test</button></div>
-</menu>
-<!--
- Below we include the Login Button social plugin. This button uses
- the JavaScript SDK to present a graphical Login button that triggers
- the FB.login() function when clicked.
--->
-<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-</fb:login-button><br><br>
-<div class="g-signin2" data-onsuccess="onSignIn"></div><br>
-
-<a href="#" onclick="signOut();">Signout</a>
-<script>
-  function signOut() {
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-      console.log('User signed out.');
-    });
-  }
-</script>
+        <a href="#" onclick="signOut();">Signout</a>
+      </div>
 
       <location-list></location-list>
       <!--<homebase></homebase>-->
