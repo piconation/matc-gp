@@ -13,6 +13,11 @@
   function loginController($firebaseAuth) {
     var self = this;
     self.authObj = $firebaseAuth();
+    self.authObj.$signInWithPopup("google").then(function(result) {
+      console.log("Signed in as:", result.user.uid);
+    }).catch(function(error) {
+      console.error("Authentication failed:", error);
+    });
   }
 
   function loginConfig($stateProvider) {
