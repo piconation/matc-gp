@@ -13,7 +13,7 @@
   function invController($stateProvider) {
     $stateProvider.state('inventory', {
       url: '/inventory',
-      template: "<inventory></inventory>"
+      template: "<inventory-list></inventory-list>"
     })
   }
 
