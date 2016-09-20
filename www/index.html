@@ -13,7 +13,7 @@
 
   <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
   <link href="css/ionic.app.css" rel="stylesheet">-->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
   <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.js"></script>-->
@@ -21,15 +21,9 @@
   <!-- cordova script (this will be a 404 during development) -->
   <script src="cordova.js"></script>
 
-  <!-- AngularJS -->
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
-
-  <!-- Firebase -->
-  <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
-
   <!-- AngularFire -->
-  <script src="https://cdn.firebase.com/libs/angularfire/2.0.2/angularfire.min.js"></script>
   <script src="https://www.gstatic.com/firebasejs/3.3.2/firebase.js"></script>
+  <script src="https://cdn.firebase.com/libs/angularfire/2.0.2/angularfire.min.js"></script>
   <!--<script src="https://apis.google.com/js/platform.js" async defer></script>-->
 
   <!-- your app's js -->
@@ -40,38 +34,6 @@
   <script src="js/locationList.component.js"></script>
   <script src="js/startmenu.js"></script>
   <script src="js/firebase.component.js"></script>
-
-
-</head>
-<script type="text/javascript">
-  var app = angular.module("starter");
-  app.controller("modalDemo", function($scope, $rootScope) {
-    $scope.leftVisible = false;
-    $scope.rightVisible = false;
-    $scope.close = function() {
-
-    <script src="lib/ionic/js/ionic.bundle.js"></script>
-
-    <!-- cordova script (this will be a 404 during development) -->
-    <script src="cordova.js"></script>
-
-
-    <!-- AngularFire -->
-    <script src="https://cdn.firebase.com/libs/angularfire/2.0.2/angularfire.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/3.3.2/firebase.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
-    <!-- your app's js -->
-    <script src="js/app.js"></script>
-    <script src="js/facebook.js"></script>
-    <!--<script src="js/thisionic.js"></script>-->
-    <script src="js/lootChance.js"></script>
-    <script src="js/locationList.component.js"></script>
-    <script src="js/homebase.component.js"></script>
-    <script src="js/startmenu.js"></script>
-    <script src="js/firebase.component.js"></script>
-
-
   </head>
   <script type="text/javascript">
     var app = angular.module("starter");
@@ -79,23 +41,22 @@
     app.controller("modalDemo", function($scope, $rootScope) {
       $scope.leftVisible = false;
       $scope.rightVisible = false;
+      $scope.showLeft = function(e) {
+        $scope.leftVisible = true;
+        e.stopPropagation();
+      };
+      $scope.showRight = function(e) {
+        $scope.rightVisible = true;
+        e.stopPropagation();
+      }
+      $rootScope.$on("documentClicked", _close);
+      $rootScope.$on("escapePressed", _close);
+      function _close() {
+        $scope.$apply(function() {
+          $scope.close();
+        });
+      };
     });
-    $scope.showLeft = function(e) {
-      $scope.leftVisible = true;
-      e.stopPropagation();
-    };
-    $scope.showRight = function(e) {
-      $scope.rightVisible = true;
-      e.stopPropagation();
-    }
-    $rootScope.$on("documentClicked", _close);
-    $rootScope.$on("escapePressed", _close);
-    function _close() {
-      $scope.$apply(function() {
-        $scope.close();
-      });
-    };
-  };
   app.run(function($rootScope) {
     document.addEventListener("keyup", function(e) {
       if (e.keyCode === 27)

@@ -4,7 +4,7 @@
 
 // $.getScript("js/lootTable.js", function(){
   //alert("Script loaded but not necessarily executed.");
-});
+// });
 
 var latestRoll = '';
 var playerData =[];
