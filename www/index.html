@@ -29,7 +29,8 @@
     <!--<script src="js/thisionic.js"></script>-->
     <script src="js/lootChance.js"></script>
     <script src="js/locationList.component.js"></script>
-    <script src="js/homebase.component.js"></script>
+    <script src="js/login.component.js"></script>
+    <!--<script src="js/homebase.component.js"></script>-->
     <script src="js/inventory.component.js"></script>
     <script src="js/startmenu.js"></script>
     <script src="js/firebase.component.js"></script>
@@ -96,55 +97,38 @@
 </script>
 
   <body ng-app="starter">
-    <ion-pane>
-      <ion-side-menu-content>
-        <ion-nav-bar class="bar-positive">
-          <ion-nav-back-button>
-          </ion-nav-back-button>
-          <ion-nav-buttons>
-            <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
-              </button>
-          </ion-nav-buttons>
-        </ion-nav-bar>
-        <ion-nav-view name="menuContent"></ion-nav-view>
-      </ion-side-menu-content>
-      <ion-side-menu side="left">
-      <ion-header-bar class="bar-stable">
-        <button class="left"><span class="ion-ios-location"></span></button>
-        <h1 class="title">Survival Gears</h1>
-        <button class="right"><span class="ion-flag"></span></button>
-      </ion-header-bar>
-        <ion-content>
-          <ion-list>
-            <ion-item menu-close class="active"
-                      ui-sref-active="active"
-                      ui-sref="app.search">
-              <i class="ion-search"></i> Some Text
-            </ion-item>
-            <ion-item menu-close></ion-item>
-      <div class="menu">
-        <div ng-app="starter"><button class="button button-block">Start Game</button></div>
-        <div ng-app="starter"><button class="button button-block">Load Game</button></div>
-        <div ng-app="starter"><button class="button button-block">Settings</button></div>
-        <div ng-app="starter"><button class="button button-block" data-component="looting">Loot Test</button></div>
-        <!--
-           Below we include the Login Button social plugin. This button uses
-           the JavaScript SDK to present a graphical Login button that triggers
-           the FB.login() function when clicked.
-         -->
-        <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-        </fb:login-button>
-        <br><br>
-        <div class="g-signin2" data-onsuccess="onSignIn"></div><br>
-
-        <a href="#" onclick="signOut();">Signout</a>
-      </div>
-
-      <location-list></location-list>
-      <homebase></homebase>
-      <inventory-list></inventory-list>
-    </ion-pane>
-
+  <ion-pane>
+    <ion-side-menu-content>
+      <ion-nav-bar class="bar-positive">
+        <ion-nav-back-button>
+        </ion-nav-back-button>
+        <ion-nav-buttons>
+          <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+          </button>
+        </ion-nav-buttons>
+      </ion-nav-bar>
+      <ion-nav-view name="menuContent"></ion-nav-view>
+    </ion-side-menu-content>
+    <ion-header-bar class="bar-stable">
+      <button class="left"><span class="ion-ios-location"></span></button>
+      <h1 class="title">Survival Gears</h1>
+      <button class="right"><span class="ion-flag"></span></button>
+    </ion-header-bar>
+    <ion-content>
+      <ion-list>
+        <ion-item menu-close class="active"
+                  ui-sref-active="active"
+                  ui-sref="app.search">
+          <i class="ion-search"></i> Some Text
+        </ion-item>
+        <ion-item menu-close></ion-item>
+        </ion-list>
+      </ion-content>
+    <location-list></location-list>
+    <login></login>
+    <!--<homebase></homebase>-->
+    <inventory></inventory>
+  </ion-pane>
     <div id="status"></div>
     <script>
       function signOut() {
@@ -154,8 +138,5 @@
         });
       }
     </script>
-    </ion-list>
-    </ion-content>
-    </ion-side-menu>
   </body>
 </html>

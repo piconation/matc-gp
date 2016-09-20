@@ -8,9 +8,9 @@
       templateUrl: "templates/inventory.html",
       controller: invController
     })
-    .config(invController);
+    .config(invConfig);
 
-  function invController($stateProvider) {
+  function invConfig($stateProvider) {
     $stateProvider.state('inventory', {
       url: '/inventory',
       template: "<inventory-list></inventory-list>"
