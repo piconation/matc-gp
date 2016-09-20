@@ -1,154 +1,143 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <meta name="google-signin-client_id" content="1049868233251-oj6cqu5142p0spc3ms3bo1ghqbsuip0n.apps.googleusercontent.com">
-    <title>Survival Gears</title>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <meta name="google-signin-client_id" content="1049868233251-oj6cqu5142p0spc3ms3bo1ghqbsuip0n.apps.googleusercontent.com">
+  <title>Survival Gears</title>
 
-    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">-->
-    <!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+  <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">-->
+  <!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
 
-    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
-    <link href="css/ionic.app.css" rel="stylesheet">-->
-
+  <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+  <link href="css/ionic.app.css" rel="stylesheet">-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.js"></script>-->
+  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.js"></script>-->
 
-    <!-- cordova script (this will be a 404 during development) -->
-    <script src="cordova.js"></script>
+  <!-- cordova script (this will be a 404 during development) -->
+  <script src="cordova.js"></script>
 
-    <!-- AngularJS -->
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>-->
+  <!-- AngularJS -->
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>-->
 
-    <!-- Firebase -->
-    <!--<script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>-->
+  <!-- Firebase -->
+  <!--<script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>-->
 
-    <!-- AngularFire -->
-    <script src="https://cdn.firebase.com/libs/angularfire/2.0.2/angularfire.min.js"></script>
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
-    <script src="https://www.gstatic.com/firebasejs/3.3.2/firebase.js"></script>
-    <!--<script src="https://apis.google.com/js/platform.js" async defer></script>-->
+  <!-- AngularFire -->
+  <script src="https://cdn.firebase.com/libs/angularfire/2.0.2/angularfire.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.3.2/firebase.js"></script>
+  <!--<script src="https://apis.google.com/js/platform.js" async defer></script>-->
 
-    <!-- your app's js -->
-    <script src="js/app.js"></script>
-    <!--<script src="js/facebook.js"></script>-->
-    <!--<script src="js/thisionic.js"></script>-->
-    <!--<script src="js/lootChance.js"></script>-->
-    <script src="js/locationList.component.js"></script>
-    <script src="js/startmenu.js"></script>
-    <script src="js/firebase.component.js"></script>
+  <!-- your app's js -->
+  <script src="js/app.js"></script>
+  <!--<script src="js/facebook.js"></script>-->
+  <!--<script src="js/thisionic.js"></script>-->
+  <script src="js/lootChance.js"></script>
+  <script src="js/locationList.component.js"></script>
+  <script src="js/startmenu.js"></script>
+  <script src="js/firebase.component.js"></script>
 
 
-  </head>
-  <script type="text/javascript">
-    var app = angular.module("starter");
-
-    app.controller("modalDemo", function($scope, $rootScope) {
+</head>
+<script type="text/javascript">
+  var app = angular.module("starter");
+  app.controller("modalDemo", function($scope, $rootScope) {
+    $scope.leftVisible = false;
+    $scope.rightVisible = false;
+    $scope.close = function() {
       $scope.leftVisible = false;
       $scope.rightVisible = false;
-
-      $scope.close = function() {
-        $scope.leftVisible = false;
-        $scope.rightVisible = false;
-      };
-
-      $scope.showLeft = function(e) {
-        $scope.leftVisible = true;
-        e.stopPropagation();
-      };
-
-      $scope.showRight = function(e) {
-        $scope.rightVisible = true;
-        e.stopPropagation();
-      }
-
-      $rootScope.$on("documentClicked", _close);
-      $rootScope.$on("escapePressed", _close);
-
-      function _close() {
-        $scope.$apply(function() {
-          $scope.close();
-        });
-      }
-    });
-
-    app.run(function($rootScope) {
-      document.addEventListener("keyup", function(e) {
-        if (e.keyCode === 27)
-          $rootScope.$broadcast("escapePressed", e.target);
+    };
+    $scope.showLeft = function(e) {
+      $scope.leftVisible = true;
+      e.stopPropagation();
+    };
+    $scope.showRight = function(e) {
+      $scope.rightVisible = true;
+      e.stopPropagation();
+    }
+    $rootScope.$on("documentClicked", _close);
+    $rootScope.$on("escapePressed", _close);
+    function _close() {
+      $scope.$apply(function() {
+        $scope.close();
       });
-
-      document.addEventListener("click", function(e) {
-        $rootScope.$broadcast("documentClicked", e.target);
-      });
+    }
+  });
+  app.run(function($rootScope) {
+    document.addEventListener("keyup", function(e) {
+      if (e.keyCode === 27)
+        $rootScope.$broadcast("escapePressed", e.target);
     });
-
-    app.directive("menu", function() {
-      return {
-        restrict: "E",
-        template: "<div ng-class='{ show: visible, left: alignment === \"left\", right: alignment === \"right\" }' ng-transclude></div>",
-        transclude: true,
-        scope: {
-          visible: "=",
-          alignment: "@"
-        }
-      };
+    document.addEventListener("click", function(e) {
+      $rootScope.$broadcast("documentClicked", e.target);
     });
-
-    app.directive("menuItem", function() {
-      return {
-        restrict: "E",
-        template: "<div ng-click='navigate()' ng-transclude></div>",
-        transclude: true,
-        scope: {
-          hash: "@"
-        },
-        link: function($scope) {
-          $scope.navigate = function() {
-            window.location.hash = $scope.hash;
-          }
+  });
+  app.directive("menu", function() {
+    return {
+      restrict: "E",
+      template: "<div ng-class='{ show: visible, left: alignment === \"left\", right: alignment === \"right\" }' ng-transclude></div>",
+      transclude: true,
+      scope: {
+        visible: "=",
+        alignment: "@"
+      }
+    };
+  });
+  app.directive("menuItem", function() {
+    return {
+      restrict: "E",
+      template: "<div ng-click='navigate()' ng-transclude></div>",
+      transclude: true,
+      scope: {
+        hash: "@"
+      },
+      link: function($scope) {
+        $scope.navigate = function() {
+          window.location.hash = $scope.hash;
         }
       }
+    }
+  });
+</script>
+
+<body ng-app="starter">
+<menu>
+  <ion-pane>
+    <ion-header-bar class="bar-stable">
+      <h1 class="title">Survival Gears</h1>
+
+      <div><button class="button button-block">Start Game</button></div>
+      <div><button class="button button-block">Load Game</button></div>
+      <div><button class="button button-block">Settings</button></div>
+      <div><button class="button button-block" data-component="looting">Loot Test</button></div>
+</menu>
+<!--
+ Below we include the Login Button social plugin. This button uses
+ the JavaScript SDK to present a graphical Login button that triggers
+ the FB.login() function when clicked.
+-->
+<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+</fb:login-button><br><br>
+<div class="g-signin2" data-onsuccess="onSignIn"></div><br>
+
+<a href="#" onclick="signOut();">Signout</a>
+<script>
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
     });
-  </script>
+  }
+</script>
+</ion-content>
+</ion-pane>
 
-  <body ng-app="starter">
-       <menu>
-    <ion-pane>
-      <ion-header-bar class="bar-stable">
-        <h1 class="title">Survival Gears</h1>
-
-        <div ng-app="starter"><button class="button button-block">Start Game</button></div>
-        <div ng-app="starter"><button class="button button-block">Load Game</button></div>
-        <div ng-app="starter"><button class="button button-block">Settings</button></div>
-        <div ng-app="starter"><button class="button button-block" data-component="looting">Loot Test</button></div>
-        </menu>
-        <!--
-         Below we include the Login Button social plugin. This button uses
-         the JavaScript SDK to present a graphical Login button that triggers
-         the FB.login() function when clicked.
-        -->
-        <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-        </fb:login-button><br><br>
-        <div class="g-signin2" data-onsuccess="onSignIn"></div><br>
-
-        <a href="#" onclick="signOut();">Signout</a>
-        <script>
-          function signOut() {
-            var auth2 = gapi.auth2.getAuthInstance();
-            auth2.signOut().then(function () {
-              console.log('User signed out.');
-            });
-          }
-        </script>
-      </ion-content>
-    </ion-pane>
-
-    <div id="status">
-    </div>
-  </body>
+<div id="status">
+</div>
+</body>
 </html>
