@@ -6,7 +6,7 @@
   angular.module('starter')
     .component('login', {
       templateUrl:'templates/login.html',
-      controller:loginController
+      controller:loginController(firebaseService)
     })
     .config(loginConfig);
 
