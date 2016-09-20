@@ -9,8 +9,8 @@
 var latestRoll = '';
 var playerData =[];
 
-jQuery(document).ready(function() {
-  jQuery('[data-component="looting"]').each(function() {
+$(window).load(function() {
+  $('[data-component="looting"]').each(function() {
     var looting = new components.Looting(this);
   });
 });
@@ -20,7 +20,7 @@ var components = components || {};
 components.Looting = function(elem) {
   // Depends on jQuery
   var self = this;
-  self.el = jQuery(elem);
+  self.el = $(elem);
   self.el.click(function () {
       self.roll();
       self.el.prop('disabled', true);
