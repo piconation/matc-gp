@@ -46,3 +46,27 @@ app.config(function ($stateProvider, $urlRouterProvider) {
       templateUrl: "templates/"
     })
 });
+
+app.config(function ($stateProvider, $urlRouterProvider) {
+  $stateProvider
+    .state('intro', {
+      url: '/',
+      templateUrl: 'templates/index.html',
+      controller: 'MenuCtrl'
+    })
+    .state('app', {
+      url: "/app",
+      abstract: true,
+      templateUrl: "templates/menu.html",
+      controller: 'MenuCtrl'
+    })
+    .state('app.search', {
+      url: "/search",
+      views: {
+        'menuContent': {
+          templateUrl: "templates/avatar.html",
+          controller: 'AvatarCtrl'
+        }
+      }
+    })
+})
