@@ -1,6 +1,6 @@
 <ion-view title="Homebase">
   <ion-content>
-    <div>HOMEBASE</div>
+    <div>THIS IS YOUR HOMEBASE</div><br>
     <div>
       Insert flavor text here.
       Bacon filet mignon pork,
@@ -11,7 +11,26 @@
       chicken shank filet mignon short loin turducken beef ribs spare ribs
       beef hamburger turkey drumstick beef sausage ground round ham hock
       filet mignon prosciutto porchetta meatball.
-    </div>
+    </div><br>
+
+    <span>YOUR MATERIALS:</span><br><br>
+
+    <div ng-repeat="Fuel Level in $ctrl.playerData">{{item.name}} : {{item.Count}}</div>
+
+    <div ng-repeat="Batteries in $ctrl.playerData">{{item.name}} : {{item.Count}}</div>
+
+    <div ng-repeat="Food in $ctrl.playerData">{{item.name}} : {{item.Count}}</div>
+
+    <div ng-repeat="Wires in $ctrl.playerData">{{item.name}} : {{item.Count}}</div>
+
+    <div ng-repeat="Electronics in $ctrl.playerData">{{item.name}} : {{item.Count}}</div>
+
+    <div ng-repeat="Med Kits in $ctrl.playerData">{{item.name}} : {{item.Count}}</div>
+
+    <div ng-repeat="Metal in $ctrl.playerData">{{item.name}} : {{item.Count}}</div>
+
+    <div ng-repeat="Wood in $ctrl.playerData">{{item.name}} : {{item.Count}}</div>
+    <br>
     <div>
       <button data-component="looting">SEARCH</button>
       <button>BUILD</button>
