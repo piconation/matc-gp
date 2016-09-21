@@ -25,14 +25,6 @@ angular.module('starter', ['ionic', 'firebase'])
     $urlRouterProvider.otherwise('/');
   });
 
-var config = {
-  apiKey: "AIzaSyD8yymwpm2Vdn3-iZ_xhDqSpyuqzlKNTSo",
-  authDomain: "matc-gp.firebaseapp.com",
-  databaseURL: "https://matc-gp.firebaseio.com",
-  storageBucket: "matc-gp.appspot.com",
-};
-firebase.initializeApp(config);
-
 app.config(function ($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('intro', {

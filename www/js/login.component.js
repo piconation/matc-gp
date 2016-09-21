@@ -24,6 +24,13 @@
     $stateProvider.state('login', {
       url: '/login',
       template: "<login></login>"
-    })
+    });
+    var config = {
+      apiKey: "AIzaSyD8yymwpm2Vdn3-iZ_xhDqSpyuqzlKNTSo",
+      authDomain: "matc-gp.firebaseapp.com",
+      databaseURL: "https://matc-gp.firebaseio.com",
+      storageBucket: "matc-gp.appspot.com",
+    };
+    firebase.initializeApp(config);
   }
 })();
