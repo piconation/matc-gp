@@ -27,10 +27,13 @@ homebase .pane {
   max-width: 280px;
   position: relative;
 }
-button.left{
+ion-header-bar button span {
+  font-size: 18px;
+}
+button.left {
   float: left;
 }
-button.right{
+button.right {
   float: right;
   right: 6px;
   position: absolute;

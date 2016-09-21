@@ -25,7 +25,7 @@ angular.module('starter', ['ionic', 'firebase'])
     $urlRouterProvider.otherwise('/');
   });
 
-app.config(function ($stateProvider, $urlRouterProvider) {
+/*app.config(function ($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('intro', {
       url: '/',
@@ -37,4 +37,4 @@ app.config(function ($stateProvider, $urlRouterProvider) {
       abstract: true,
       templateUrl: "templates/"
     })
-});
+});*/
