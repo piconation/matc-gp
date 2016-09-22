@@ -25,16 +25,26 @@ angular.module('starter', ['ionic', 'firebase'])
     $urlRouterProvider.otherwise('/');
   });
 
-/*app.config(function ($stateProvider, $urlRouterProvider) {
+app.config(function ($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('intro', {
       url: '/',
       templateUrl: 'templates/index.html',
-      controller: 'IntroCtrl'
+      controller: 'MenuCtrl'
     })
     .state('app', {
       url: "/app",
       abstract: true,
-      templateUrl: "templates/"
+      templateUrl: "templates/menu.html",
+      controller: 'MenuCtrl'
     })
-});*/
+    .state('app.search', {
+      url: "/search",
+      views: {
+        'menuContent': {
+          templateUrl: "templates/avatar.html",
+          controller: 'AvatarCtrl'
+        }
+      }
+    })
+})
