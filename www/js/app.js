@@ -19,6 +19,7 @@ angular.module('starter', ['ionic', 'firebase'])
         StatusBar.styleDefault();
       }
     });
+    myAppRun();
   })
 
   .config(function ($urlRouterProvider, $stateProvider) {
@@ -45,3 +46,12 @@ angular.module('starter', ['ionic', 'firebase'])
       });
   });
 
+  function myAppRun() {
+    var config = {
+      apiKey: "AIzaSyD8yymwpm2Vdn3-iZ_xhDqSpyuqzlKNTSo",
+      authDomain: "matc-gp.firebaseapp.com",
+      databaseURL: "https://matc-gp.firebaseio.com",
+      storageBucket: "matc-gp.appspot.com",
+    };
+    firebase.initializeApp(config);
+  };
