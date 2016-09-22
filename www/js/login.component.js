@@ -3,10 +3,10 @@
  */
 
 (function() {
-  angular.module('starter', ['firebase'])
+  angular.module('starter')
     .component('login', {
       templateUrl:'templates/login.html',
-      controller:loginController(firebaseService)
+      controller:loginController
     })
     .config(loginConfig);
 

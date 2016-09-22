@@ -27,7 +27,7 @@
 
     <!-- your app's js -->
     <script src="js/app.js"></script>
-    <!--<script src="js/facebook.js"></script>-->
+    <script src="js/facebook.js"></script>
     <!--<script src="js/thisionic.js"></script>-->
     <script src="js/lootChance.js"></script>
     <script src="js/locationList.component.js"></script>
@@ -99,16 +99,17 @@
 </script>
 
   <body ng-app="starter">
-  <ion-pane>
-    <ion-side-menu-content>
-      <ion-nav-bar class="bar-positive">
-        <ion-nav-back-button></ion-nav-back-button>
-        <ion-nav-button side="left">
-          <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
-          </button>
-        </ion-nav-button>
-      </ion-nav-bar>
-    </ion-side-menu-content>
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-positive">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+      <ion-nav-button side="left">
+        <button class="button button-icon button-clear ion-navicon"
+                menu-toggle-"left">
+        </button>
+      </ion-nav-button>
+    </ion-nav-bar>
+
     <ion-header-bar class="bar-stable">
       <button class="left"><span class="ion-ios-location"></span></button>
       <h1 class="title">Survival Gears</h1>
@@ -120,7 +121,8 @@
     <!--<homebase></homebase>-->
     <inventory></inventory>
   </ion-pane>
-  <div id="status"></div>
+    <div id="status"></div>
+
 
   </body>
 </html>
