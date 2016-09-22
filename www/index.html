@@ -35,7 +35,7 @@
     <!--<script src="js/homebase.component.js"></script>-->
     <script src="js/inventory.component.js"></script>
     <script src="js/startmenu.js"></script>
-    <script src="js/firebase.component.js"></script>
+    <script src="js/firebase.service.js"></script>
 
   </head>
   <script type="text/javascript">
@@ -99,28 +99,27 @@
 </script>
 
   <body ng-app="starter">
-  <ion-side-menu-content>
-    <ion-nav-bar class="bar-positive">
-      <ion-nav-back-button>
-      </ion-nav-back-button>
-      <ion-nav-button side="left">
-        <button class="button button-icon button-clear ion-navicon"
-                menu-toggle-"left">
-        </button>
-      </ion-nav-button>
-    </ion-nav-bar>
+    <ion-pane>
+      <ion-side-menu-content>
+        <ion-nav-bar class="bar-positive">
+          <ion-nav-back-button></ion-nav-back-button>
+          <ion-nav-button side="left">
+            <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+          </ion-nav-button>
+        </ion-nav-bar>
+      </ion-side-menu-content>
 
-    <ion-header-bar class="bar-stable">
-      <button class="left"><span class="ion-ios-location"></span></button>
-      <h1 class="title">Survival Gears</h1>
-      <button class="right"><span class="ion-cube"></span></button>
-    </ion-header-bar>
+      <ion-header-bar class="bar-stable">
+        <button class="left"><span class="ion-ios-location"></span></button>
+        <h1 class="title">Survival Gears</h1>
+        <button class="right"><span class="ion-cube"></span></button>
+      </ion-header-bar>
 
-    <location-list></location-list>
-    <login></login>
-    <!--<homebase></homebase>-->
-    <inventory></inventory>
-  </ion-pane>
+      <location-list></location-list>
+      <login></login>
+      <!--<homebase></homebase>-->
+      <inventory></inventory>
+    </ion-pane>
     <div id="status"></div>
 
 
