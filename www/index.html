@@ -41,80 +41,18 @@
   <script type="text/javascript">
     var app = angular.module("starter");
 
-    app.controller("modalDemo", function($scope, $rootScope) {
-      $scope.leftVisible = false;
-      $scope.rightVisible = false;
-      $scope.showLeft = function(e) {
-        $scope.leftVisible = true;
-        e.stopPropagation();
-      };
-      $scope.showRight = function(e) {
-        $scope.rightVisible = true;
-        e.stopPropagation();
-      };
 
-      $rootScope.$on("documentClicked", _close);
-      $rootScope.$on("escapePressed", _close);
-      function _close() {
-        $scope.$apply(function() {
-          $scope.close();
-        });
-      }
-    });
-  app.run(function($rootScope) {
-    document.addEventListener("keyup", function(e) {
-      if (e.keyCode === 27)
-        $rootScope.$broadcast("escapePressed", e.target);
-    });
-    document.addEventListener("click", function(e) {
-      $rootScope.$broadcast("documentClicked", e.target);
-    });
-  });
-  app.directive("menu", function() {
-    return {
-      restrict: "E",
-      template: "<div ng-class='{ show: visible, left: alignment === \"left\", right: alignment === \"right\" }' ng-transclude></div>",
-      transclude: true,
-      scope: {
-        visible: "=",
-        alignment: "@"
-      }
-    };
-  });
-  app.directive("menuItem", function() {
-    return {
-      restrict: "E",
-      template: "<div ng-click='navigate()' ng-transclude></div>",
-      transclude: true,
-      scope: {
-        hash: "@"
-      },
-      link: function($scope) {
-        $scope.navigate = function() {
-          window.location.hash = $scope.hash;
-        }
-      }
-    }
-  });
 </script>
 
   <body ng-app="starter">
-  <ion-side-menu-content>
-    <ion-nav-bar class="bar-positive">
-      <ion-nav-back-button>
-      </ion-nav-back-button>
-      <ion-nav-button side="left">
-        <button class="button button-icon button-clear ion-navicon"
-                menu-toggle-"left">
-        </button>
-      </ion-nav-button>
-    </ion-nav-bar>
 
     <ion-header-bar class="bar-stable">
-      <button class="left"><span class="ion-ios-location"></span></button>
+      <button menuTo class="left"><span class="ion-ios-location"></span></button>
       <h1 class="title">Survival Gears</h1>
       <button class="right"><span class="ion-flag"></span></button>
     </ion-header-bar>
+
+
 
     <location-list></location-list>
     <login></login>
