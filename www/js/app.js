@@ -21,8 +21,26 @@ angular.module('starter', ['ionic', 'firebase'])
     });
   })
 
-  .config(function ($urlRouterProvider) {
-    $urlRouterProvider.otherwise('/');
-  });
+.config(function ($stateProvider, $urlRouterProvider) {
+  $stateProvider
 
+    .state('app', {
+      url: "/menu",
+      abstract: true,
+      templateUrl: "templates/menu.html"
+      // controller: 'menuCtrl'
+    })
+
+     .state('app.locations', {
+      url: "/locations",
+       views: {
+         'menuContent': {
+           templateUrl: "templates/locations.html",
+           controller: 'locationController'
+         }
+       }
+    });
+
+   $urlRouterProvider.otherwise('/login');
+});
 

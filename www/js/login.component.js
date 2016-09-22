@@ -6,7 +6,7 @@
   angular.module('starter')
     .component('login', {
       templateUrl:'templates/login.html',
-      controller:loginController(firebaseService)
+      controller:loginController
     })
     .config(loginConfig);
 
@@ -29,7 +29,7 @@
       apiKey: "AIzaSyD8yymwpm2Vdn3-iZ_xhDqSpyuqzlKNTSo",
       authDomain: "matc-gp.firebaseapp.com",
       databaseURL: "https://matc-gp.firebaseio.com",
-      storageBucket: "matc-gp.appspot.com",
+      storageBucket: "matc-gp.appspot.com"
     };
     firebase.initializeApp(config);
   }

@@ -9,11 +9,11 @@
        the JavaScript SDK to present a graphical Login button that triggers
        the FB.login() function when clicked.
      -->
-    <!--<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">-->
-    <!--</fb:login-button>-->
-    <!--<br><br>-->
+    <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+    </fb:login-button>
+    <br><br>
 
-    <!--<div class="g-signin2" data-onsuccess="onSignIn"></div><br>-->
+    <div class="g-signin2" data-onsuccess="onSignIn"></div><br>
 
     <span ng-show="firebaseUser">{{ firebaseUser.displayName }} | <a href="#" ng-click="authObj.$signOut()">Sign out</a>
     </span>

@@ -10,11 +10,7 @@
 
   <link href="lib/ionic/css/ionic.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
-
-  <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
-  <link href="css/ionic.app.css" rel="stylesheet">-->
-    <!-- ionic/angularjs js -->
-    <script src="lib/ionic/js/ionic.bundle.js"></script>
+  <script src="lib/ionic/js/ionic.bundle.js"></script>
 
     <!-- cordova script (this will be a 404 during development) -->
     <!--script src="cordova.js"></script> -->
@@ -34,8 +30,7 @@
     <script src="js/login.component.js"></script>
     <!--<script src="js/homebase.component.js"></script>-->
     <script src="js/inventory.component.js"></script>
-    <script src="js/startmenu.js"></script>
-    <script src="js/firebase.component.js"></script>
+    <script src="js/firebase.service.js"></script>
 
   </head>
   <script type="text/javascript">
@@ -45,36 +40,11 @@
 </script>
 
   <body ng-app="starter">
+<ion-nav-view>
 
-    <ion-header-bar class="bar-stable">
-      <button menuTo class="left"><span class="ion-ios-location"></span></button>
-      <h1 class="title">Survival Gears</h1>
-      <button class="right"><span class="ion-flag"></span></button>
-    </ion-header-bar>
+</ion-nav-view>
 
 
-
-    <location-list></location-list>
-    <login></login>
-    <!--<homebase></homebase>-->
-    <inventory></inventory>
-  </ion-pane>
-    <div id="status"></div>
-    <!--&lt;!&ndash;<script>&ndash;&gt;-->
-      <function signOut() {
-<!--&lt;!&ndash;//        var auth2 = gapi.auth2.getAuthInstance();&ndash;&gt;-->
-<!--&lt;!&ndash;//        auth2.signOut().then(function () {&ndash;&gt;-->
-<!--&lt;!&ndash;//          console.log('User signed out.');&ndash;&gt;-->
-        <!--&lt;!&ndash;});&ndash;&gt;-->
-      <!--&lt;!&ndash;}&ndash;&gt;-->
-    <!--&lt;!&ndash;</script>&ndash;&gt;-->
-    <!--&lt;!&ndash;<script>-->
-      <!--function signOut() {-->
-        <!--var auth2 = gapi.auth2.getAuthInstance();-->
-        <!--auth2.signOut().then(function () {-->
-          <!--console.log('User signed out.');-->
-        <!--});-->
-      <!--}-->
 
   </body>
 </html>
