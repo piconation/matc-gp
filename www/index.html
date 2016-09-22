@@ -99,17 +99,16 @@
 </script>
 
   <body ng-app="starter">
-  <ion-side-menu-content>
-    <ion-nav-bar class="bar-positive">
-      <ion-nav-back-button>
-      </ion-nav-back-button>
-      <ion-nav-button side="left">
-        <button class="button button-icon button-clear ion-navicon"
-                menu-toggle-"left">
-        </button>
-      </ion-nav-button>
-    </ion-nav-bar>
-
+  <ion-pane>
+    <ion-side-menu-content>
+      <ion-nav-bar class="bar-positive">
+        <ion-nav-back-button></ion-nav-back-button>
+        <ion-nav-button side="left">
+          <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+          </button>
+        </ion-nav-button>
+      </ion-nav-bar>
+    </ion-side-menu-content>
     <ion-header-bar class="bar-stable">
       <button class="left"><span class="ion-ios-location"></span></button>
       <h1 class="title">Survival Gears</h1>
@@ -121,22 +120,7 @@
     <!--<homebase></homebase>-->
     <inventory></inventory>
   </ion-pane>
-    <div id="status"></div>
-    <!--&lt;!&ndash;<script>&ndash;&gt;-->
-      <function signOut() {
-<!--&lt;!&ndash;//        var auth2 = gapi.auth2.getAuthInstance();&ndash;&gt;-->
-<!--&lt;!&ndash;//        auth2.signOut().then(function () {&ndash;&gt;-->
-<!--&lt;!&ndash;//          console.log('User signed out.');&ndash;&gt;-->
-        <!--&lt;!&ndash;});&ndash;&gt;-->
-      <!--&lt;!&ndash;}&ndash;&gt;-->
-    <!--&lt;!&ndash;</script>&ndash;&gt;-->
-    <!--&lt;!&ndash;<script>-->
-      <!--function signOut() {-->
-        <!--var auth2 = gapi.auth2.getAuthInstance();-->
-        <!--auth2.signOut().then(function () {-->
-          <!--console.log('User signed out.');-->
-        <!--});-->
-      <!--}-->
+  <div id="status"></div>
 
   </body>
 </html>
