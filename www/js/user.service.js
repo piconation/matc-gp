@@ -1,9 +1,9 @@
 (function () {
 
   angular.module('starter')
-    .service('firebaseService', firebaseService);
+    .service('User', User);
 
-  function firebaseService($firebaseAuth, $firebaseObject, $log, $q) {
+  function User($firebaseAuth, $firebaseObject, $log, $q) {
 
     // User properties
     var self = this;
