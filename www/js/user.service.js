@@ -14,7 +14,6 @@
     self.loginWithEmail = loginWithEmail;
     self.logout = logout;
 
-    // vm.userData = $localStorage['firebase:authUser:AIzaSyD8yymwpm2Vdn3-iZ_xhDqSpyuqzlKNTSo:[DEFAULT]']; // doesn't work!
     var userData = JSON.parse(localStorage.getItem('firebase:authUser:AIzaSyD8yymwpm2Vdn3-iZ_xhDqSpyuqzlKNTSo:[DEFAULT]'));
     self.displayName = userData ? userData.displayName || userData.email : undefined;
 

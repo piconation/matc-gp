@@ -95,5 +95,8 @@ components.Looting.prototype.lootPick = function () {
       }
       updateVal(newLoot, 1);
       console.log(playerData);
+
+      
+      profileRef.push(playerData);
   }
 };
