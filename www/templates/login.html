@@ -5,11 +5,20 @@
     <div ng-app="starter"><button class="button button-block">Settings</button></div>
     <div ng-app="starter"><button class="button button-block" data-component="looting">Loot Test</button></div>
 
+<<<<<<< HEAD
       <content><br><br>
         <button ng-if="!vm.displayName" class="md-raised md-primary" id="fb" ng-click="vm.login('facebook')">Log in with <span class="ion-social-facebook"></span></button><br><br>
         <button ng-if="!vm.displayName" class="md-raised md-primary" id="google" ng-click="vm.login('google')">Log in with <span class="ion-social-google"></span></button><br><br>
         <button ng-if="!vm.displayName" class="md-raised md-primary" id="mail" ng-click="vm.showEmailLogin()">Log in with <span class="ion-email"></span></button><br>
         <a ng-if="vm.displayName" id="loggedIn">You are logged in as {{ vm.displayName }}.</a><br><button id="logout" class="md-raised" ng-if="vm.displayName" ng-click="vm.logout()">Click here to log out</button><br><br>
+=======
+      <content>
+        <button ng-if="vm.displayName" class="md-raised" ng-click="vm.logout()">You are {{ vm.displayName }}</button>
+        <button class="md-raised md-primary" ng-click="vm.login('facebook')">Log in with Facebook</button>
+        <button class="md-raised md-primary" ng-click="vm.login('google')">Log in with Google</button>
+        <button class="md-raised md-primary" ng-click="vm.showEmailLogin()">Log in with Email</button>
+
+>>>>>>> 5ab66bf063b3eb64d7155cec9667e9bd959f8486
       </content>
 
       <content ng-show="vm.showLogin">
@@ -21,6 +30,7 @@
           <label for="password">Password</label>
           <input type="password" id="password" ng-model="vm.password" required
                  ng-keypress="($event.which === 13) ? vm.loginWithEmail(): 0">
+
         </div>
         <div>
           <button class="md-raised md-primary" ng-click="vm.loginWithEmail()">Log in</button>
@@ -30,6 +40,7 @@
 
   </div>
 
+<<<<<<< HEAD
   <ion-side-menus enable-menu-with-back-views="false">
     <ion-side-menu-content>
       <ion-nav-bar class="bar-stable">
@@ -66,5 +77,6 @@
     </ion-side-menu>
   </ion-side-menus>
 
+=======
+>>>>>>> 5ab66bf063b3eb64d7155cec9667e9bd959f8486
 </ion-pane>
-
