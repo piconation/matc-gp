@@ -76,7 +76,7 @@
             $log.log("User could not be updated.");
           });
         } else {
-          $log.log('User already logged in.');
+          $log.log('You are now logged in.');
         }
         self.displayName = providerUser.displayName;
         deferred.resolve();
