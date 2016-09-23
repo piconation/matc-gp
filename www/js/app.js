@@ -22,29 +22,28 @@ angular.module('starter', ['ionic', 'firebase'])
     myAppRun();
   })
 
-  .config(function ($urlRouterProvider, $stateProvider) {
-    $urlRouterProvider.otherwise('/');
-    $stateProvider
-      .state('intro', {
-        url: '/',
-        // templateUrl: 'templates/index.html',
-        controller: 'IntroCtrl'
-      })
-      .state('app', {
-        url: "/app",
-        abstract: true,
-        // templateUrl: "templates/"
-      })
-      .state('app.search', {
-        url: "/search",
-        views: {
-          'menuContent': {
-            // templateUrl: "templates/avatar.html",
-            controller: 'AvatarCtrl'
-          }
-        }
-      });
-  });
+.config(function ($stateProvider, $urlRouterProvider) {
+  $stateProvider
+
+    .state('app', {
+      url: "/menu",
+      abstract: true,
+      templateUrl: "templates/menu.html"
+      // controller: 'menuCtrl'
+    })
+
+     .state('app.locations', {
+      url: "/locations",
+       views: {
+         'menuContent': {
+           templateUrl: "templates/locations.html",
+           controller: 'locationController'
+         }
+       }
+    });
+
+   $urlRouterProvider.otherwise('/login');
+});
 
   function myAppRun() {
     var config = {
