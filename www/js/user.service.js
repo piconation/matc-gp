@@ -49,7 +49,7 @@
 
     function logout() {
       var auth = $firebaseAuth();
-      $log.log(self.displayName + " logged out");
+      $log.log(self.displayName + " has been logged out.");
       auth.$signOut();
     }
 
@@ -64,19 +64,19 @@
       self.user = $firebaseObject(profileRef);
       self.user.$loaded().then(function () {
         if (!self.user.displayName) {
-          $log.log("updating user...");
+          $log.log("Logging in...");
           profileRef.set({
             displayName: providerUser.displayName || providerUser.email,
             email: providerUser.email,
             photoURL: providerUser.photoURL,
             lastLogin: firebase.database.ServerValue.TIMESTAMP
           }).then(function () {
-            $log.log("user updated.");
+            $log.log("Logged in.");
           }, function () {
-            $log.log("user could not be updated.");
+            $log.log("User could not be updated.");
           });
         } else {
-          $log.log('user already created!');
+          $log.log('User already logged in.');
         }
         self.displayName = providerUser.displayName;
         deferred.resolve();
