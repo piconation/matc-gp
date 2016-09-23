@@ -50,3 +50,55 @@ button.right {
   text-align: center;
 }
 
+#fb {
+  background-color: #2A67A8;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  border-radius: 10px;
+}
+
+#fb span {
+  font-size: 22px;
+  padding: 2px;
+}
+
+#google {
+  background-color: #ff2121;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  border-radius: 10px;
+}
+
+#google span {
+  font-size: 22px;
+  padding: 2px;
+}
+
+#mail {
+  background-color: mediumseagreen;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  border-radius: 10px;
+}
+
+#mail span {
+  font-size: 22px;
+  padding: 2px;
+}
+
+#loggedIn {
+  color: darkred;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+#logout {
+  background-color: darkred;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  color: white;
+}
