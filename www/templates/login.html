@@ -4,19 +4,29 @@
     <div ng-app="starter"><button class="button button-block">Load Game</button></div>
     <div ng-app="starter"><button class="button button-block">Settings</button></div>
     <div ng-app="starter"><button class="button button-block" data-component="looting">Loot Test</button></div>
-    <!--
-       Below we include the Login Button social plugin. This button uses
-       the JavaScript SDK to present a graphical Login button that triggers
-       the FB.login() function when clicked.
-     -->
-    <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-    </fb:login-button>
-    <br><br>
 
-    <div class="g-signin2" data-onsuccess="onSignIn"></div><br>
+      <content>
+        <button ng-if="vm.displayName" class="md-raised" ng-click="vm.logout()">You are {{ vm.displayName }}</button>
+        <button class="md-raised md-primary" ng-click="vm.login('facebook')">Log in with Facebook</button>
+        <button class="md-raised md-primary" ng-click="vm.login('google')">Log in with Google</button>
+        <button class="md-raised md-primary" ng-click="vm.showEmailLogin()">Log in with Email</button>
+      </content>
 
-    <span ng-show="firebaseUser">{{ firebaseUser.displayName }} | <a href="#" ng-click="authObj.$signOut()">Sign out</a>
-    </span>
+      <content ng-show="vm.showLogin">
+        <div>
+          <label>Email</label>
+          <input type="email" id="email" ng-model="vm.email" required>
+        </div>
+        <div>
+          <label for="password">Password</label>
+          <input type="password" id="password" ng-model="vm.password" required
+                 ng-keypress="($event.which === 13) ? vm.loginWithEmail(): 0">
+        </div>
+        <div>
+          <button class="md-raised md-primary" ng-click="vm.loginWithEmail()">Log in</button>
+        </div>
+      </content>
+
 
   </div>
 </ion-pane>

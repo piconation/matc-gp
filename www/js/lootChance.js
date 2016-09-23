@@ -2,10 +2,6 @@
  * Created by isaacwatts on 9/13/16.
  */
 
-// $.getScript("js/lootTable.js", function(){
-  //alert("Script loaded but not necessarily executed.");
-// });
-
 var latestRoll = '';
 var playerData =[];
 

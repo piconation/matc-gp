@@ -1,164 +1,93 @@
-
 (function () {
+
   angular.module('starter')
     .service('firebaseService', firebaseService);
-    
-  function firebaseService($firebaseObject) {
+
+  function firebaseService($firebaseAuth, $firebaseObject, $log, $q) {
+
+    // User properties
     var self = this;
-    var ref = new Firebase("https://matc-gp.firebaseio.com");
+    self.displayName = undefined; // used to determine if user is logged in
 
-    // download the data into a local object
-    self.data = $firebaseObject(ref);
+    // User functions
+    self.login = login;
+    self.loginWithEmail = loginWithEmail;
+    self.logout = logout;
 
-    // create an instance of the authentication service
-    var auth = $firebaseAuth(ref);
+    // vm.userData = $localStorage['firebase:authUser:AIzaSyD8yymwpm2Vdn3-iZ_xhDqSpyuqzlKNTSo:[DEFAULT]']; // doesn't work!
+    var userData = JSON.parse(localStorage.getItem('firebase:authUser:AIzaSyD8yymwpm2Vdn3-iZ_xhDqSpyuqzlKNTSo:[DEFAULT]'));
+    self.displayName = userData ? userData.displayName || userData.email : undefined;
 
-    //This is the code to allow users to sign in with their Google account credentials:
-    var provider = new firebase.auth.GoogleAuthProvider();
-    firebase.auth().signInWithRedirect(provider);
-    firebase.auth().getRedirectResult().then(function (result) {
-      if (result.credential) {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        var token = result.credential.accessToken;
-        // ...
-      }
-      // The signed-in user info.
-      var user = result.user;
-    }).catch(function (error) {
-      // Handle Errors here.
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      // The email of the user's account used.
-      var email = error.email;
-      // The firebase.auth.AuthCredential type that was used.
-      var credential = error.credential;
-      // ...
-    });
-
-    function onSignIn(googleUser) {
-      var profile = googleUser.getBasicProfile();
-      console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-      console.log('Name: ' + profile.getName());
-      console.log('Image URL: ' + profile.getImageUrl());
-      console.log('Email: ' + profile.getEmail());
+    // login with third-party provider
+    function login(provider) {
+      var auth = $firebaseAuth();
+      return auth.$signInWithPopup(provider)
+        .then(loginSuccess)
+        .catch(loginError);
     }
 
-//This is the code to allow users to sign in using their Facebook account:
-    var provider = new firebase.auth.FacebookAuthProvider();
-    firebase.auth().signInWithPopup(provider).then(function (result) {
-      // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-      var token = result.credential.accessToken;
-      // The signed-in user info.
-      var user = result.user;
-      // ...
-    }).catch(function (error) {
-      // Handle Errors here.
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      // The email of the user's account used.
-      var email = error.email;
-      // The firebase.auth.AuthCredential type that was used.
-      var credential = error.credential;
-      // ...
-    });
-
-//This is the code to allow users to sign out of their account:
-    firebase.auth().signOut().then(function () {
-      // Sign-out successful.
-    }, function (error) {
-      // An error happened.
-    });
-
-    // create a synchronized array
-    self.messages = $firebaseArray(ref);
-    // add new items to the array
-    // the message is automatically added to our Firebase database!
-    self.addMessage = function () {
-      self.messages.$add({
-        text: self.newMessageText
-      });
-    };
-
-    // putting a console.log here won't work, see below
-    syncObject.$bindTo(self, "data");
-
-    // This is called with the results from FB.getLoginStatus().
-    function statusChangeCallback(response) {
-      console.log('statusChangeCallback');
-      console.log(response);
-      // The response object is returned with a status field that lets the
-      // app know the current login status of the person.
-      // Full docs on the response object can be found in the documentation
-      // for FB.getLoginStatus().
-      if (response.status === 'connected') {
-        // Logged into your app and Facebook.
-        testAPI();
-      } else if (response.status === 'not_authorized') {
-        // The person is logged into Facebook, but not your app.
-        document.getElementById('status').innerHTML = 'Please log ' +
-          'into this app.';
-      } else {
-        // The person is not logged into Facebook, so we're not sure if
-        // they are logged into this app or not.
-        document.getElementById('status').innerHTML = 'Please log ' +
-          'into Facebook.';
-      }
+    function loginWithEmail(email, password) {
+      var auth = $firebaseAuth();
+      return auth.$createUserWithEmailAndPassword(email, password)
+        .then(function () {
+          auth.$signInWithEmailAndPassword(email, password)
+            .then(loginSuccess)
+            .catch(loginError);
+        }, function (error) {
+          if (error.code == "auth/weak-password") {
+            loginError(error);
+          } else if (error.code === "auth/email-already-in-use") {
+            auth.$signInWithEmailAndPassword(email, password)
+              .then(loginSuccess)
+              .catch(loginError);
+          } else {
+            $log.error(error);
+          }
+        })
+        .catch(loginError);
     }
 
-// This function is called when someone finishes with the Login
-// Button.  See the onlogin handler attached to it in the sample
-// code below.
-    function checkLoginState() {
-      FB.getLoginStatus(function (response) {
-        statusChangeCallback(response);
-      });
+    function logout() {
+      var auth = $firebaseAuth();
+      $log.log(self.displayName + " logged out");
+      auth.$signOut();
     }
 
-    window.fbAsyncInit = function () {
-      FB.init({
-        appId: '{1760337584239123}',
-        cookie: true,  // enable cookies to allow the server to access
-                       // the session
-        xfbml: true,  // parse social plugins on this page
-        version: 'v2.5' // use graph api version 2.5
+    // User private functions
+    function loginSuccess(firebaseUser) {
+      var deferred = $q.defer();
+      $log.log(firebaseUser);
+
+      var providerUser = firebaseUser.user ? firebaseUser.user : firebaseUser;
+      var ref = firebase.database().ref("users");
+      var profileRef = ref.child(providerUser.uid);
+      self.user = $firebaseObject(profileRef);
+      self.user.$loaded().then(function () {
+        if (!self.user.displayName) {
+          $log.log("updating user...");
+          profileRef.set({
+            displayName: providerUser.displayName || providerUser.email,
+            email: providerUser.email,
+            photoURL: providerUser.photoURL,
+            lastLogin: firebase.database.ServerValue.TIMESTAMP
+          }).then(function () {
+            $log.log("user updated.");
+          }, function () {
+            $log.log("user could not be updated.");
+          });
+        } else {
+          $log.log('user already created!');
+        }
+        self.displayName = providerUser.displayName;
+        deferred.resolve();
       });
-
-      // Now that we've initialized the JavaScript SDK, we call
-      // FB.getLoginStatus().  This function gets the state of the
-      // person visiting this page and can return one of three states to
-      // the callback you provide.  They can be:
-      //
-      // 1. Logged into your app ('connected')
-      // 2. Logged into Facebook, but not your app ('not_authorized')
-      // 3. Not logged into Facebook and can't tell if they are logged into
-      //    your app or not.
-      //
-      // These three cases are handled in the callback function.
-
-      FB.getLoginStatus(function (response) {
-        statusChangeCallback(response);
-      });
-    };
-
-// Load the SDK asynchronously
-    (function (d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s);
-      js.id = id;
-      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7&appId=1760337584239123";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-
-// Here we run a very simple test of the Graph API after login is
-// successful.  See statusChangeCallback() for when this call is made.
-    function testAPI() {
-      console.log('Welcome!  Fetching your information.... ');
-      FB.api('/me', function (response) {
-        console.log('Successful login for: ' + response.name);
-        document.getElementById('status').innerHTML =
-          'Thanks for logging in, ' + response.name + '!';
-      });
+      return deferred.promise;
     }
+
+    function loginError(error) {
+      $log.log("Authentication failed:", error);
+    }
+
   }
-  })();
+
+})();
