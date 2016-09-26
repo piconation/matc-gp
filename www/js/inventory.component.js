@@ -1,12 +1,13 @@
 /**
  * Created by isaacwatts on 9/15/16.
  */
-(function(){
 
+(function() {
   angular.module('starter')
     .component('inventory', { // the tag for using this is <inventory-list>
       templateUrl: "templates/inventory.html",
-      controller: invController
+      controller: invController,
+      controllerAs: 'lb'
     })
     .config(invConfig);
 
@@ -20,8 +21,8 @@
   function invController(Looting) {
 
     // variables
-    var self = this;
-    self.playerData = playerData;
+    var lb = this;
+    lb.allInv = Looting.playerData;
     Looting.newLoot();
   }
 
