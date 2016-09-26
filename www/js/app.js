@@ -26,9 +26,18 @@ angular.module('starter', ['ionic', 'firebase'])
   $stateProvider
 
     .state('app', {
-      url: "/menu",
+      url: "/",
       abstract: true,
       templateUrl: "templates/menu.html"
+    })
+
+    .state('app.login',{
+      url: "login",
+      views: {
+        'menuContent': {
+          template: '<login></login>'
+        }
+      }
     })
 
      .state('app.locations', {
