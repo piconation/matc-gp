@@ -10,8 +10,8 @@
         <button ng-if="!vm.displayName" class="md-raised md-primary" id="google" ng-click="vm.login('google')">Log in with <span class="ion-social-google"></span></button><br><br>
         <button ng-if="!vm.displayName" class="md-raised md-primary" id="mail" ng-click="vm.showEmailLogin()">Log in with <span class="ion-email"></span></button><br>
         <a ng-if="vm.displayName" id="loggedIn">You are logged in as {{ vm.displayName }}.</a><br><button id="logout" class="md-raised" ng-if="vm.displayName" ng-click="vm.logout()">Click here to log out</button><br><br>
-      </content>
 
+     </content>
       <content ng-show="vm.showLogin">
         <div>
           <label>Email</label>
@@ -21,6 +21,7 @@
           <label for="password">Password</label>
           <input type="password" id="password" ng-model="vm.password" required
                  ng-keypress="($event.which === 13) ? vm.loginWithEmail(): 0">
+
         </div>
         <div>
           <button class="md-raised md-primary" ng-click="vm.loginWithEmail()">Log in</button>
@@ -30,11 +31,11 @@
 
   </div>
 
+
   <ion-side-menus enable-menu-with-back-views="false">
     <ion-side-menu-content>
       <ion-nav-bar class="bar-stable">
-        <ion-nav-back-button>
-        </ion-nav-back-button>
+        <ion-nav-back-button></ion-nav-back-button>
 
         <ion-nav-buttons side="left">
           <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
@@ -68,4 +69,3 @@
   </ion-side-menus>
 
 </ion-pane>
-

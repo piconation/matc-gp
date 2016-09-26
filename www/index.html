@@ -6,8 +6,6 @@
     <meta name="google-signin-client_id" content="1049868233251-oj6cqu5142p0spc3ms3bo1ghqbsuip0n.apps.googleusercontent.com">
     <title> Survival Gears </title>
 
-
-
   <link href="lib/ionic/css/ionic.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
   <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
@@ -42,8 +40,8 @@
 
   <body ng-app="starter">
 
-    <ion-pane>
       <ion-header-bar class="bar-stable">
+        <ion-pane>
         <button class="left"><span class="ion-pizza" menu-toggle="left"></span></button>
         <ion-side-menus enable-menu-with-back-views="false">
           <ion-side-menu-content>
@@ -55,8 +53,13 @@
                 <button class="button button-icon button-clear ion-pizza" menu-toggle="left">
                 </button>
               </ion-nav-buttons>
+              <ion-nav-buttons side="right">
+                <button class="button button-icon button-clear ion-icecream" menu-toggle="right">
+                </button>
+              </ion-nav-buttons>
             </ion-nav-bar>
-            <ion-nav-view name="menuContent"></ion-nav-view>
+            <ion-nav-view name="menuContent">
+            </ion-nav-view>
           </ion-side-menu-content>
 
           <ion-side-menu side="left">
@@ -74,20 +77,41 @@
                 <ion-item menu-close="#/app/browse">
                   Browse
                 </ion-item>
-                <ion-item menu-close="#/app/playlists">
-                  Playlists
+                <ion-item>
+                 Some Text
                 </ion-item>
               </ion-list>
             </ion-content>
           </ion-side-menu>
-        </ion-side-menus>
+
+          <ion-side-menu side="right">
+            <ion-header-bar class="bar-stable">
+              <h1 class="title">Right</h1>
+            </ion-header-bar>
+            <ion-content>
+              <ion-list>
+                <ion-item menu-close ng-click="login()">
+                  Login
+                </ion-item>
+                <ion-item menu-close="#/app/search">
+                  Search
+                </ion-item>
+                <ion-item menu-close="#/app/browse">
+                  Browse
+                </ion-item>
+                <ion-item>
+                  Some Text
+                </ion-item>
+              </ion-list>
+            </ion-content>
+          </ion-side-menu>
         </ion-header-bar>
 
-        <h1 class="title">Survival Gears</h1>
 
-      <location-list></location-list>
-      <!--<homebase></homebase>-->
-      <inventory></inventory>
+
+      <!--<location-list></location-list>-->
+      <!--&lt;!&ndash;<homebase></homebase>&ndash;&gt;-->
+      <!--<inventory></inventory>-->
       <login></login>
     </ion-pane>
     <div id="status">

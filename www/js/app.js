@@ -29,7 +29,6 @@ angular.module('starter', ['ionic', 'firebase'])
       url: "/menu",
       abstract: true,
       templateUrl: "templates/menu.html"
-       // controller: 'menuCtrl'
     })
 
      .state('app.locations', {
