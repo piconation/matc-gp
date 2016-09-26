@@ -15,7 +15,7 @@
       var profileRef = ref.child(providerUser.uid);
       //var temp_Loot = self.user.playerData;
       var temp_Loot = JSON.parse(localStorage.getItem('firebase:authUser:AIzaSyD8yymwpm2Vdn3-iZ_xhDqSpyuqzlKNTSo:[DEFAULT]'));
-      self.playerData = temp_Loot.playerData 
+      self.playerData = temp_Loot.playerData;
 
       self.user = $firebaseObject(profileRef);
 
