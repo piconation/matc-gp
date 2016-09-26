@@ -17,11 +17,12 @@
     })
   }
 
-  function invController() {
+  function invController(Looting) {
 
     // variables
     var self = this;
     self.playerData = playerData;
+    Looting.newLoot();
   }
 
 })();
