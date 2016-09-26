@@ -4,12 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <meta name="google-signin-client_id" content="1049868233251-oj6cqu5142p0spc3ms3bo1ghqbsuip0n.apps.googleusercontent.com">
-    <title>Survival Gears</title>
+    <title> Survival Gears </title>
 
 
 
   <link href="lib/ionic/css/ionic.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
+  <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <script src="lib/ionic/js/ionic.bundle.js"></script>
 
     <!-- cordova script (this will be a 404 during development) -->
@@ -37,33 +38,61 @@
   <script type="text/javascript">
     var app = angular.module("starter");
 
-
 </script>
 
   <body ng-app="starter">
 
     <ion-pane>
-      <!--<ion-side-menu-content>
-        <ion-nav-bar class="bar-positive">
-          <ion-nav-back-button></ion-nav-back-button>
-          <ion-nav-button side="left">
-            <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
-          </ion-nav-button>
-        </ion-nav-bar>
-      </ion-side-menu-content>-->
-
       <ion-header-bar class="bar-stable">
-        <button class="left"><span class="ion-ios-location"></span></button>
+        <button class="left"><span class="ion-pizza" menu-toggle="left"></span></button>
+        <ion-side-menus enable-menu-with-back-views="false">
+          <ion-side-menu-content>
+            <ion-nav-bar class="bar-stable">
+              <ion-nav-back-button>
+              </ion-nav-back-button>
+
+              <ion-nav-buttons side="left">
+                <button class="button button-icon button-clear ion-pizza" menu-toggle="left">
+                </button>
+              </ion-nav-buttons>
+            </ion-nav-bar>
+            <ion-nav-view name="menuContent"></ion-nav-view>
+          </ion-side-menu-content>
+
+          <ion-side-menu side="left">
+            <ion-header-bar class="bar-stable">
+              <h1 class="title">Left</h1>
+            </ion-header-bar>
+            <ion-content>
+              <ion-list>
+                <ion-item menu-close ng-click="login()">
+                  Login
+                </ion-item>
+                <ion-item menu-close="#/app/search">
+                  Search
+                </ion-item>
+                <ion-item menu-close="#/app/browse">
+                  Browse
+                </ion-item>
+                <ion-item menu-close="#/app/playlists">
+                  Playlists
+                </ion-item>
+              </ion-list>
+            </ion-content>
+          </ion-side-menu>
+        </ion-side-menus>
+        </ion-header-bar>
+
         <h1 class="title">Survival Gears</h1>
-        <button class="right"><span class="ion-cube"></span></button>
-      </ion-header-bar>
 
       <location-list></location-list>
       <!--<homebase></homebase>-->
       <inventory></inventory>
       <login></login>
     </ion-pane>
-    <div id="status"></div>
+    <div id="status">
+
+    </div>
 
   </body>
 </html>
