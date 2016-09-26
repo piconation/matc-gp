@@ -76,7 +76,7 @@ button.right {
   padding: 2px;
 }
 
-#mail {
+#mailbutton {
   background-color: mediumseagreen;
   color: white;
   font-weight: bold;
@@ -84,7 +84,7 @@ button.right {
   border-radius: 10px;
 }
 
-#mail span {
+#mailbutton span {
   font-size: 22px;
   padding: 2px;
 }
@@ -101,4 +101,26 @@ button.right {
   font-size: 18px;
   font-weight: 500;
   color: white;
+}
+
+#mail {
+  border: solid;
+  border-color: darkgray;
+  border-width: 1px;
+  margin: auto;
+}
+
+#password {
+  border: solid;
+  border-color: darkgray;
+  border-width: 1px;
+  margin: auto;
+}
+
+#maillogin {
+  background-color: mediumseagreen;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  border-radius: 10px;
 }
