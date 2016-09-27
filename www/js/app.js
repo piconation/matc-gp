@@ -68,7 +68,7 @@ angular.module('starter', ['ionic', 'firebase'])
           controllerAs: 'fl'
         }
       }
-    });;
+    });
 
    $urlRouterProvider.otherwise('/login');
 });
