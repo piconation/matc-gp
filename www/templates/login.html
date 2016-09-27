@@ -1,17 +1,37 @@
-<ion-pane>
-  <div class="menu">
-    <div ng-app="starter"><button class="button button-block" ng-click="vm.resolve()">Start Game</button></div>
-    <div ng-app="starter"><button class="button button-block">Load Game</button></div>
-    <div ng-app="starter"><button class="button button-block">Settings</button></div>
-    <div ng-app="starter"><button class="button button-block" data-component="looting">Loot Test</button></div>
+<ion-view>
+  <ion-content>
+    <div class="xmenu">
+      <div ng-show="vm.displayName">
+        <div ng-app="starter">
+          <button class="button button-block" ng-click="vm.resolve()">Start Game</button>
+        </div>
+        <div ng-app="starter">
+          <button class="button button-block">Load Game</button>
+        </div>
+        <div ng-app="starter">
+          <button class="button button-block">Settings</button>
+        </div>
+        <div ng-app="starter">
+          <button class="button button-block" data-component="looting">Loot Test</button>
+        </div>
+      </div>
 
       <content><br><br>
-        <button ng-if="!vm.displayName" class="md-raised md-primary" id="fb" ng-click="vm.login('facebook')">Log in with <span class="ion-social-facebook"></span></button><br><br>
-        <button ng-if="!vm.displayName" class="md-raised md-primary" id="google" ng-click="vm.login('google')">Log in with <span class="ion-social-google"></span></button><br><br>
-        <button ng-if="!vm.displayName" class="md-raised md-primary" id="mail" ng-click="vm.showEmailLogin()">Log in with <span class="ion-email"></span></button><br>
-        <a ng-if="vm.displayName" id="loggedIn">You are logged in as {{ vm.displayName }}.</a><br><button id="logout" class="md-raised" ng-if="vm.displayName" ng-click="vm.logout()">Click here to log out</button><br><br>
+        <button ng-if="!vm.displayName" class="md-raised md-primary" id="fb" ng-click="vm.login('facebook')">Log in with
+          <span class="ion-social-facebook"></span></button>
+        <br><br>
+        <button ng-if="!vm.displayName" class="md-raised md-primary" id="google" ng-click="vm.login('google')">Log in
+          with <span class="ion-social-google"></span></button>
+        <br><br>
+        <button ng-if="!vm.displayName" class="md-raised md-primary" id="mail" ng-click="vm.showEmailLogin()">Log in
+          with <span class="ion-email"></span></button>
+        <br>
+        <a ng-if="vm.displayName" id="loggedIn">You are logged in as {{ vm.displayName }}.</a><br>
+        <button id="logout" class="md-raised" ng-if="vm.displayName" ng-click="vm.logout()">Click here to log out
+        </button>
+        <br><br>
+      </content>
 
-     </content>
       <content ng-show="vm.showLogin">
         <div>
           <label>Email</label>
@@ -24,11 +44,11 @@
 
         </div>
         <div>
-          <button class="md-raised md-primary" ng-click="vm.loginWithEmail()">Log in</button>
+          <button class="button button-balanced" ng-click="vm.loginWithEmail()">Log in</button>
         </div>
       </content>
+    </div>
 
+  </ion-content>
 
-  </div>
-
-</ion-pane>
+</ion-view>

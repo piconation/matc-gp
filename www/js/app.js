@@ -26,18 +26,17 @@ angular.module('starter', ['ionic', 'firebase'])
   $stateProvider
 
     .state('app', {
-      url: "/",
+      url: "/app",
       abstract: true,
-      templateUrl: "templates/menu.html"
+      templateUrl: "templates/menu.html",
+      controller: 'menuController'
     })
 
-    .state('app.login',{
-      url: "login",
-      views: {
-        'menuContent': {
-          template: '<login></login>'
-        }
-      }
+    .state('login',{
+      url: "/login",
+      templateUrl: "templates/login.html",
+      controller: 'loginController',
+      controllerAs: 'vm'
     })
 
      .state('app.locations', {
@@ -46,6 +45,16 @@ angular.module('starter', ['ionic', 'firebase'])
          'menuContent': {
            templateUrl: "templates/locations.html",
            controller: 'locationController'
+         }
+       }
+    })
+
+     .state('app.homebase', {
+      url: "/homebase",
+       views: {
+         'menuContent': {
+           templateUrl: "templates/homebase.html",
+           controller: 'homebaseController'
          }
        }
     });
