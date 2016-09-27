@@ -7,7 +7,7 @@
   left: 0px;
   right: 0px;
   max-width: 200px;
-  top: 50px;
+  top: 70px;
 }
 ion-header-bar button {
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#11c1f3+0,87e0fd+58,53cbf1+60,87e0fd+100 */
@@ -123,4 +123,11 @@ button.right {
   font-weight: bold;
   font-size: 18px;
   border-radius: 10px;
+}
+
+#loginHead {
+  font-size: 30px;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 20px;
 }
