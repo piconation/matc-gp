@@ -68,7 +68,8 @@
             displayName: providerUser.displayName || providerUser.email,
             email: providerUser.email,
             photoURL: providerUser.photoURL,
-            lastLogin: firebase.database.ServerValue.TIMESTAMP
+            lastLogin: firebase.database.ServerValue.TIMESTAMP,
+            playerData: ["Inventory Goes Here"]
           }).then(function () {
             $log.log("Logged in.");
           }, function () {

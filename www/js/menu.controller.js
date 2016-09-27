@@ -4,9 +4,9 @@
 (function(){
 
   angular.module('starter')
-    .controller('invController', invController);
+    .controller('menuController', menuController);
 
-  function invController() {
+  function menuController() {
 
     // variables
     var self = this;
