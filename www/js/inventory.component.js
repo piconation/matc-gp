@@ -4,13 +4,17 @@
 (function(){
 
   angular.module('starter')
-    .controller('invController', invController);
+      .controller('invController', invController);
 
-  function invController() {
+  function invController(Looting) {
 
     // variables
-    var self = this;
-    self.playerData = playerData;
+    var fl = this;
+    fl.newloot = newLoot;
+    
+    function newLoot() {
+      Looting.getLoot();
+    }
   }
 
 })();
