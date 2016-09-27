@@ -64,7 +64,7 @@ angular.module('starter', ['ionic', 'firebase'])
       views: {
         'menuContent': {
           templateUrl: "templates/inventory.html",
-          controller: 'invController'
+          controller: 'invController',
           controllerAs: 'fl'
         }
       }
