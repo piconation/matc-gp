@@ -1,19 +1,6 @@
  (function() {
   angular.module('starter')
     .controller('loginController', loginController);
-    // .component('login', {
-    //   templateUrl:'templates/login.html',
-    //   controller:loginController,
-    //   controllerAs: 'vm'
-    // })
-    // .config(loginConfig);
-
-  // function loginConfig($stateProvider) {
-  //   $stateProvider.state('login', {
-  //     url: '/login',
-  //     template: "<login></login>"
-  //   });
-  // }
 
   function loginController(User) {
     // component properties
