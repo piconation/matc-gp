@@ -3,7 +3,7 @@
   angular.module('starter')
     .service('User', User);
 
-  function User($firebaseAuth, $firebaseObject, $log, $q, $ionicPopup, $state, gameService) {
+  function User($firebaseAuth, $firebaseObject, $log, $q, $ionicPopup, $state, Game) {
 
     // User properties
     var self = this;
@@ -14,6 +14,8 @@
     self.login = login;
     self.loginWithEmail = loginWithEmail;
     self.logout = logout;
+    self.gameStart = gameStart;
+    self.loadGame = loadGame;
 
     var userData = JSON.parse(localStorage.getItem('firebase:authUser:AIzaSyD8yymwpm2Vdn3-iZ_xhDqSpyuqzlKNTSo:[DEFAULT]'));
     self.displayName = userData ? userData.displayName || userData.email : undefined;
@@ -56,35 +58,28 @@
 
     function gameStart() {
       //If game exists, prompt to start new game.
-      if (gameService.gameExists()) {
-        $scope.showConfirm = function() {
+      if (Game.gameExists()) {
+        $scope.showConfirm = function () {
           var confirmPopup = $ionicPopup.confirm({
             title: 'Create New Game?',
-            template: 'Are you sure you want to eat this ice cream?'
+            template: 'Are you sure you want to overwrite your existing game with a new game?'
           });
 
-          confirmPopup.then(function(res) {
-            if(res) {
+          confirmPopup.then(function (res) {
+            if (res) {
               //reset game and go to game screen
-              console.log('You are sure');
+              console.log('Yes I want to overwrite my existing game and start a new game.');
             } else {
               //leave them there.
-              console.log('You are not sure');
+              console.log('No, I do not want to start a new game.');
             }
           });
         };
       }
-      //else create new game.
-      game.post(function (response) {
-        self.game = response.data;
-        self.message = 'Are you sure you want to overwrite your existing game?';
-      }, function (response) {
-        self.message = 'Please login to load your game.';
-      });
     }
 
     function loadGame() {
-      if (gameService.gameExists()){
+      if (Game.gameExists()){
         //go to game screen(homebase JS).
         $state.go('app.homebase');
       }
