@@ -60,6 +60,14 @@
       var providerUser = firebaseUser.user ? firebaseUser.user : firebaseUser;
       var ref = firebase.database().ref("users");
       var profileRef = ref.child(providerUser.uid);
+      
+      game.post(function (response) {
+        self.game = response.data;
+        self.message = 'Are you sure you want to overwrite your existing game?';
+      }, function (response) {
+        self.message = 'Please login to load your game.';
+      });
+
       self.user = $firebaseObject(profileRef);
       self.user.$loaded().then(function () {
         if (!self.user.displayName) {
@@ -79,7 +87,7 @@
           $log.log('You are now logged in.');
         }
         self.displayName = providerUser.displayName;
-        deferred.resolve();
+        deferred.start();
       });
       return deferred.promise;
     }

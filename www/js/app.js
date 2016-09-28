@@ -58,6 +58,17 @@ angular.module('starter', ['ionic', 'firebase'])
            controller: 'homebaseController'
          }
        }
+    })
+
+    .state('app.inventory', {
+      url: "/inventory",
+      views: {
+        'menuContent': {
+          templateUrl: "templates/inventory.html",
+          controller: 'invController',
+          controllerAs: 'fl'
+        }
+      }
     });
 
    $urlRouterProvider.otherwise('/login');
