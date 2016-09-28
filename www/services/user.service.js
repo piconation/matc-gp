@@ -8,7 +8,7 @@
     // User properties
     var self = this;
     self.displayName = undefined; // used to determine if user is logged in
-    self.playerData = [];
+    //self.playerData = [];
 
     // User functions
     self.login = login;
