@@ -3,7 +3,7 @@
   angular.module('starter')
     .service('User', User);
 
-  function User($firebaseAuth, $firebaseObject, $log, $q, $ionicPopup, $state) {
+  function User($firebaseAuth, $firebaseObject, $log, $q) {
 
     // User properties
     var self = this;
@@ -14,8 +14,6 @@
     self.login = login;
     self.loginWithEmail = loginWithEmail;
     self.logout = logout;
-    self.gameStart = gameStart;
-    self.loadGame = loadGame;
 
     var userData = JSON.parse(localStorage.getItem('firebase:authUser:AIzaSyD8yymwpm2Vdn3-iZ_xhDqSpyuqzlKNTSo:[DEFAULT]'));
     self.displayName = userData ? userData.displayName || userData.email : undefined;
@@ -54,35 +52,6 @@
       var auth = $firebaseAuth();
       $log.log(self.displayName + " has been logged out.");
       auth.$signOut();
-    }
-
-    function gameStart() {
-      //If game exists, prompt to start new game.
-      if (self.playerData) {
-        $scope.showConfirm = function () {
-          var confirmPopup = $ionicPopup.confirm({
-            title: 'Create New Game?',
-            template: 'Are you sure you want to overwrite your existing game with a new game?'
-          });
-
-          confirmPopup.then(function (res) {
-            if (res) {
-              //reset game and go to game screen
-              console.log('Yes I want to overwrite my existing game and start a new game.');
-            } else {
-              //leave them there.
-              console.log('No, I do not want to start a new game.');
-            }
-          });
-        };
-      }
-    }
-
-    function loadGame() {
-      if (self.playerData){
-        //go to game screen(homebase JS).
-        $state.go('app.homebase');
-      }
     }
 
     // User private functions
