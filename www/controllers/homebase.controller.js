@@ -7,7 +7,7 @@
   angular.module('starter')
     .controller('homebaseController', homebaseController);
 
-  function homebaseController(user, $state) {
+  function homebaseController(User, $state) {
     var self = this;
     //self.homebase = this.homebase;
   }
