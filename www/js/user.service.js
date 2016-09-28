@@ -60,7 +60,7 @@
             title: 'Create New Game?',
             template: 'Are you sure you want to eat this ice cream?'
           });
-  
+
           confirmPopup.then(function(res) {
             if(res) {
               //reset game and go to game screen
@@ -80,7 +80,7 @@
         self.message = 'Please login to load your game.';
       });
     }
-    
+
     function loadGame() {
       if (gameService.gameExists()){
         //go to game screen(homebase JS).
