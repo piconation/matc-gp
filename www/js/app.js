@@ -44,7 +44,8 @@ angular.module('starter', ['ionic', 'firebase'])
        views: {
          'menuContent': {
            templateUrl: "templates/locations.html",
-           controller: 'locationController'
+           controller: 'locationController',
+           controllerAs: 'loc'
          }
        }
     })

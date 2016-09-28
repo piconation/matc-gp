@@ -8,6 +8,7 @@
     // User properties
     var self = this;
     self.displayName = undefined; // used to determine if user is logged in
+    self.playerData = [];
 
     // User functions
     self.login = login;
@@ -16,6 +17,7 @@
 
     var userData = JSON.parse(localStorage.getItem('firebase:authUser:AIzaSyD8yymwpm2Vdn3-iZ_xhDqSpyuqzlKNTSo:[DEFAULT]'));
     self.displayName = userData ? userData.displayName || userData.email : undefined;
+    self.playerData = userData ? userData.playerData : undefined;
 
     // login with third-party provider
     function login(provider) {
@@ -106,7 +108,7 @@
             email: providerUser.email,
             photoURL: providerUser.photoURL,
             lastLogin: firebase.database.ServerValue.TIMESTAMP,
-            playerData: ["Inventory Goes Here"]
+            playerData: []
           }).then(function () {
             $log.log("Logged in.");
           }, function () {
