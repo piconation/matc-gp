@@ -3,7 +3,7 @@
   angular.module('starter')
     .service('Game', Game);
 
-  function Game($scope, $ionicPopup, $state, User) {
+  function Game($ionicPopup, $state, User) {
 
     // User properties
     var self = this;
