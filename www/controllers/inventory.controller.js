@@ -6,11 +6,14 @@
   angular.module('starter')
       .controller('invController', invController);
 
-  function invController(Looting) {
+  function invController(Looting, User) {
 
     // variables
     var fl = this;
+    fl.playerData = User.playerData;
+    
     fl.newloot = newLoot;
+    
     
     function newLoot() {
       Looting.getLoot();

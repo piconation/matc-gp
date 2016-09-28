@@ -29,6 +29,7 @@
       }
 
       function lootPick(latestRoll) {
+          /* Assign loot from Rand Num passed in*/
           var self = this;
           var newLoot = '';
           if (latestRoll) {
