@@ -3,7 +3,7 @@
   angular.module('starter')
     .service('User', User);
 
-  function User($firebaseAuth, $firebaseObject, $log, $q) {
+  function User($firebaseAuth, $firebaseObject, $log, $q, $ionicPopup, $state, gameService) {
 
     // User properties
     var self = this;
@@ -54,6 +54,42 @@
       auth.$signOut();
     }
 
+    function gameStart() {
+      //If game exists, prompt to start new game.
+      if (gameService.gameExists()) {
+        $scope.showConfirm = function() {
+          var confirmPopup = $ionicPopup.confirm({
+            title: 'Create New Game?',
+            template: 'Are you sure you want to eat this ice cream?'
+          });
+
+          confirmPopup.then(function(res) {
+            if(res) {
+              //reset game and go to game screen
+              console.log('You are sure');
+            } else {
+              //leave them there.
+              console.log('You are not sure');
+            }
+          });
+        };
+      }
+      //else create new game.
+      game.post(function (response) {
+        self.game = response.data;
+        self.message = 'Are you sure you want to overwrite your existing game?';
+      }, function (response) {
+        self.message = 'Please login to load your game.';
+      });
+    }
+
+    function loadGame() {
+      if (gameService.gameExists()){
+        //go to game screen(homebase JS).
+        $state.go('app.homebase');
+      }
+    }
+
     // User private functions
     function loginSuccess(firebaseUser) {
       var deferred = $q.defer();
@@ -62,13 +98,6 @@
       var providerUser = firebaseUser.user ? firebaseUser.user : firebaseUser;
       var ref = firebase.database().ref("users");
       var profileRef = ref.child(providerUser.uid);
-
-      game.post(function (response) {
-        self.game = response.data;
-        self.message = 'Are you sure you want to overwrite your existing game?';
-      }, function (response) {
-        self.message = 'Please login to load your game.';
-      });
 
       self.user = $firebaseObject(profileRef);
       self.user.$loaded().then(function () {
