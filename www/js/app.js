@@ -44,7 +44,7 @@ angular.module('starter', ['ionic', 'firebase'])
        views: {
          'menuContent': {
            templateUrl: "templates/locations.html",
-           controller: 'locationController',
+           controller: 'locationListController',
            controllerAs: 'loc'
          }
        }
@@ -74,12 +74,12 @@ angular.module('starter', ['ionic', 'firebase'])
    $urlRouterProvider.otherwise('/login');
 });
 
-  function myAppRun() {
+function myAppRun() {
     var config = {
-      apiKey: "AIzaSyD8yymwpm2Vdn3-iZ_xhDqSpyuqzlKNTSo",
-      authDomain: "matc-gp.firebaseapp.com",
-      databaseURL: "https://matc-gp.firebaseio.com",
-      storageBucket: "matc-gp.appspot.com",
+        apiKey: "AIzaSyD8yymwpm2Vdn3-iZ_xhDqSpyuqzlKNTSo",
+        authDomain: "matc-gp.firebaseapp.com",
+        databaseURL: "https://matc-gp.firebaseio.com",
+        storageBucket: "matc-gp.appspot.com"
     };
     firebase.initializeApp(config);
-  };
+}

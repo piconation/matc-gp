@@ -3,7 +3,7 @@
   angular.module('starter')
     .service('User', User);
 
-  function User($firebaseAuth, $firebaseObject, $log, $q, $ionicPopup, $state, Game) {
+  function User($firebaseAuth, $firebaseObject, $log, $q, $ionicPopup, $state) {
 
     // User properties
     var self = this;
@@ -19,7 +19,7 @@
 
     var userData = JSON.parse(localStorage.getItem('firebase:authUser:AIzaSyD8yymwpm2Vdn3-iZ_xhDqSpyuqzlKNTSo:[DEFAULT]'));
     self.displayName = userData ? userData.displayName || userData.email : undefined;
-    self.playerData = userData ? userData.playerData : undefined;
+    self.playerData = userData ? userData.playerData : [];
 
     // login with third-party provider
     function login(provider) {
@@ -58,7 +58,7 @@
 
     function gameStart() {
       //If game exists, prompt to start new game.
-      if (Game.gameExists()) {
+      if (self.playerData) {
         $scope.showConfirm = function () {
           var confirmPopup = $ionicPopup.confirm({
             title: 'Create New Game?',
@@ -79,7 +79,7 @@
     }
 
     function loadGame() {
-      if (Game.gameExists()){
+      if (self.playerData){
         //go to game screen(homebase JS).
         $state.go('app.homebase');
       }
