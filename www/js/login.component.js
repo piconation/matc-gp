@@ -1,8 +1,4 @@
- /**
- * Created by mattpowell on 9/20/16.
- */
-
-(function() {
+ (function() {
   angular.module('starter')
     .controller('loginController', loginController);
     // .component('login', {

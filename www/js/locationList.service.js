@@ -4,10 +4,10 @@
 
 (function () {
 
-  angular.module('starter')
-    .controller('locationController', locationController);
+  angular.module('locations')
+    .service('locationList', locationList);
   
-  function locationController() {
+  function locationList() {
    
     var self = this;
     self.locations = [

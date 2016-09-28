@@ -6,11 +6,12 @@
   angular.module('starter')
     .controller('menuController', menuController);
 
-  function menuController() {
+  function menuController(locationList) {
 
     // variables
     var self = this;
     self.playerData = playerData;
+    
+    loc.navigation = locationList.locations;
   }
-
 })();
