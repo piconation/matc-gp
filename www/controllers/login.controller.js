@@ -2,7 +2,7 @@
   angular.module('starter')
     .controller('loginController', loginController);
 
-  function loginController(User, Game) {
+  function loginController(User, Game, Looting) {
     // component properties
     var vm = this;
     vm.showLogin = false;
@@ -18,6 +18,7 @@
     vm.loginWithEmail = loginWithEmail;
     vm.logout = logout;
     vm.gameStart = gameStart;
+    vm.getLoot = getLoot;
 
     function showEmailLogin() {
       vm.showLogin = !vm.showLogin;
@@ -57,6 +58,10 @@
     function gameStart() {
       console.log("send request to service");
       Game.gameStart();
+    }
+
+    function getLoot() {
+      Looting.getLoot();
     }
 
     window.fbAsyncInit = function() {
