@@ -2,7 +2,7 @@
   angular.module('starter')
     .controller('loginController', loginController);
 
-  function loginController(User) {
+  function loginController(User, Game) {
     // component properties
     var vm = this;
     vm.showLogin = false;
