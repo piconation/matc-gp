@@ -9,8 +9,8 @@
   function menuController(locationList) {
 
     // variables
-    var self = this;
-    self.playerData = playerData;
+    var loc = this;
+    loc.playerData = playerData;
     
     loc.navigation = locationList.locations;
   }

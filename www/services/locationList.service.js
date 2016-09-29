@@ -16,7 +16,7 @@
         'sortkey': "establish odds",
         'name': 'Homebase',
         'desc': "The beginning of your empire."
-              },
+      },
       {
         'id': 1,
         'sortkey': "establish odds",
