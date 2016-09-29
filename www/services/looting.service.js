@@ -18,6 +18,7 @@
 
           self.lootRoll();
           // User.playerData.update(self.playerData);
+
       }
 
       function lootRoll() {
@@ -80,25 +81,26 @@
               }
               return false;
           }
-
-          /*UPDATE THE AMOUNT OF OBJECTS*/
-          function updateVal(key, amnt) {
-              for (var i in User.playerData) {
-                  if (User.playerData[i] == key) {
-                      User.playerData[i].lootCount += amnt;
-                      break; //Stop this loop, we found it!
-                  }
-              }
-          }
-
           var contains = containsObject(newLoot, User.playerData);
           if (!(contains)) {
               if (!User.playerData) {
                 User.playerData = [];
               }
-              User.playerData.push(newLoot);
+              //User.playerData.$bindTo(newLoot);
+              //User.updatePlayerData();
+          }
+
+          /*UPDATE THE AMOUNT OF OBJECTS*/
+          function updateVal(key, amnt) {
+            for (var i in User.playerData) {
+              if (User.playerData[i] == key) {
+                User.playerData[i].lootCount += amnt;
+                break; //Stop this loop, we found it!
+              }
+            }
           }
           updateVal(newLoot, 1);
+          console.log(User.playerData);
       }
   }
 })();

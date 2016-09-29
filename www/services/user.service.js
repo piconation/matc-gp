@@ -8,12 +8,13 @@
     // User properties
     var self = this;
     self.displayName = undefined; // used to determine if user is logged in
-    //self.playerData = [];
+    self.playerData = [];
 
     // User functions
     self.login = login;
     self.loginWithEmail = loginWithEmail;
     self.logout = logout;
+    self.updatePlayerData = updatePlayerData;
 
     var userData = JSON.parse(localStorage.getItem('firebase:authUser:AIzaSyD8yymwpm2Vdn3-iZ_xhDqSpyuqzlKNTSo:[DEFAULT]'));
     self.displayName = userData ? userData.displayName || userData.email : undefined;
@@ -64,6 +65,7 @@
       var profileRef = ref.child(providerUser.uid);
       var playerDataRef = profileRef.child("playerData");
       self.playerData = $firebaseArray(playerDataRef);
+      playerDataRef.$bindTo(self.playerData);
 
       self.user = $firebaseObject(profileRef);
       self.user.$loaded().then(function () {
@@ -91,6 +93,10 @@
 
     function loginError(error) {
       $log.log("Authentication failed:", error);
+    }
+
+    function updatePlayerData() {
+      self.playerData.set(self.playerData);
     }
 
   }
