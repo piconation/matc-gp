@@ -10,8 +10,7 @@
 
     // variables
     var loc = this;
-    loc.playerData = playerData;
-    
+
     loc.navigation = locationList.locations;
   }
 })();
