@@ -17,11 +17,11 @@
           var self = this;
 
           self.lootRoll();
-          User.playerData = self.playerData;
+          User.playerData.update(self.playerData);
       }
 
       function lootRoll() {
-          /*RAND CHOICE FOR LOOchange to T, uses 2-12 range with odd increase to 7*/
+          /*RAND CHOICE FOR LOOT change to, uses 2-12 range with odd increase to 7*/
           var self = this;
           var d1 = Math.floor(Math.random() * 6) + 1;
           var d2 = Math.floor(Math.random() * 6) + 1;
