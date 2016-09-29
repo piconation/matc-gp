@@ -2,7 +2,7 @@
   angular.module('starter')
     .controller('loginController', loginController);
 
-  function loginController(User, Game, Looting) {
+  function loginController(User, Game, Looting, $state, $ionicPopup) {
     // component properties
     var vm = this;
     vm.showLogin = false;
@@ -19,6 +19,9 @@
     vm.logout = logout;
     vm.gameStart = gameStart;
     vm.getLoot = getLoot;
+    vm.loadGame = loadGame;
+    vm.showConfirm = showConfirm;
+    vm.loadConfirm = loadConfirm;
 
     function showEmailLogin() {
       vm.showLogin = !vm.showLogin;
@@ -46,7 +49,7 @@
           } else {
             vm.errorMessage = "Error. Please try again.";
           }
-        }, function(error) {
+        }, function (error) {
           vm.errorMessage = error.message;
         });
     }
@@ -55,30 +58,70 @@
       User.logout();
       vm.displayName = undefined;
     }
+
     function gameStart() {
-      console.log("send request to service");
-      Game.gameStart();
+      //console.log("send request to service");
+      //Game.gameStart();
+      if (!User.playerData) {
+        console.log('No player data.');
+        vm.showConfirm();
+      }
+      else {
+        console.log(User.playerData)
+      }
+    }
+
+    function showConfirm() {
+      console.log('This is after show confirm.');
+      var confirmPopup = $ionicPopup.confirm({
+        title: 'Create New Game?',
+        template: 'Are you sure you want to overwrite your existing game with a new game?'
+      });
+
+      confirmPopup.then(function (res) {
+        if (res) {
+          //reset game and go to game screen
+          console.log('Yes I want to overwrite my existing game and start a new game.');
+          $state.go('app.homebase');
+        } else {
+          //leave them there.
+          console.log('No, I do not want to start a new game.');
+        }
+      });
+    }
+
+    function loadGame() {
+      if (!User.playerData) {
+        console.log('After player data.');
+        //go to game screen(homebase JS).
+        vm.loadConfirm();
+      }
+      else {
+        console.log(User.playerData)
+      }
+    }
+
+    function loadConfirm() {
+      console.log('This is after they click Load Game.');
+      var confirmPopup = $ionicPopup.confirm({
+        title: 'Load Game?',
+        template: 'Are you sure you want to load your game?'
+      });
+
+      confirmPopup.then(function (res) {
+        if (res) {
+          //Go to game screen
+          console.log('Yes I want to load my game.');
+          $state.go('app.homebase');
+        } else {
+          //Leave them there.
+          console.log('No, I do not want to load a new game.');
+        }
+      });
     }
 
     function getLoot() {
       Looting.getLoot();
     }
-
-    window.fbAsyncInit = function() {
-      FB.init({
-        appId: '{1760337584239123}',
-        cookie: true,  // enable cookies to allow the server to access the session
-        xfbml: true,  // parse social plugins on this page
-        version: 'v2.5' // use graph api version 2.5
-      });
-    }
   }
 })();
-
-(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7&appId=1760337584239123";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
