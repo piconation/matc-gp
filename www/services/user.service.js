@@ -85,7 +85,7 @@
           $log.log('You are now logged in.');
         }
         self.displayName = providerUser.displayName;
-        deferred.start();
+        deferred.resolve();
       });
       return deferred.promise;
     }
