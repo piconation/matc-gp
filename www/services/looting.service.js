@@ -6,7 +6,7 @@
   function Looting(User) {
       var self = this;
       self.latestRoll = null;
-      self.playerData = User.playerData;
+      //self.playerData = User.playerData;
 
       // FUNCTIONS
       self.getLoot = getLoot;
