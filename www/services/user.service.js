@@ -62,9 +62,8 @@
       var providerUser = firebaseUser.user ? firebaseUser.user : firebaseUser;
       var ref = firebase.database().ref("users");
       var profileRef = ref.child(providerUser.uid);
-      
-      var pd = firebase.database().ref().child("/user/" + profileRef + "/playerData");
-      self.playerData = $firebaseArray(pd);
+      var playerDataRef = profileRef.child("playerData");
+      self.playerData = $firebaseArray(playerDataRef);
 
       self.user = $firebaseObject(profileRef);
       self.user.$loaded().then(function () {
