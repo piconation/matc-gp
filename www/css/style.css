@@ -1,3 +1,9 @@
+ion-content {
+  background-image: url(../survivor1.jpg);
+  background-size: cover;
+  min-height: 100%;
+  min-width: 100%;
+}
 
 .xmenu {
   position: absolute;
