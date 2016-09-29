@@ -136,3 +136,24 @@ button.right {
   text-align: center;
   margin-top: 20px;
 }
+
+.leftmost {
+  background-color: rgba(66, 255, 136, 0.86);
+  border: solid;
+
+}
+
+.buildbutton {
+  background-color: rgba(66, 255, 136, 0.86);
+  border: solid;
+}
+
+.sleepy {
+  background-color: rgba(66, 255, 136, 0.86);
+  border: solid;
+}
+
+.hungry {
+  background-color: rgba(66, 255, 136, 0.86);
+  border: solid;
+}
