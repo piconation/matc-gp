@@ -4,11 +4,11 @@
 
 (function () {
 
-  angular.module('locations')
+  angular.module('starter')
     .service('locationList', locationList);
-  
+
   function locationList() {
-   
+
     var self = this;
     self.locations = [
       {
@@ -43,6 +43,6 @@
       }
     ];
   }
-  
+
 
 })();
