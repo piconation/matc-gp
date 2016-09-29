@@ -19,9 +19,6 @@
     self.displayName = userData ? userData.displayName || userData.email : undefined;
     //self.playerData = userData ? userData.playerData : [];
 
-    var ref = firebase.database().ref().child("playerData");
-    self.playerData = $firebaseArray(ref);
-
     // login with third-party provider
     function login(provider) {
       var auth = $firebaseAuth();
@@ -65,6 +62,9 @@
       var providerUser = firebaseUser.user ? firebaseUser.user : firebaseUser;
       var ref = firebase.database().ref("users");
       var profileRef = ref.child(providerUser.uid);
+      
+      var pd = firebase.database().ref().child("/user/" + profileRef + "/playerData");
+      self.playerData = $firebaseArray(pd);
 
       self.user = $firebaseObject(profileRef);
       self.user.$loaded().then(function () {
@@ -85,7 +85,7 @@
           $log.log('You are now logged in.');
         }
         self.displayName = providerUser.displayName;
-        deferred.start();
+        deferred.resolve();
       });
       return deferred.promise;
     }
