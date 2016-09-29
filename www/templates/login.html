@@ -4,7 +4,7 @@
     <div class="xmenu">
       <div ng-show="vm.displayName">
         <div ng-app="starter">
-          <button class="button button-block" ng-click="vm.start()">Start Game</button>
+          <button class="button button-block" ng-click="vm.gameStart()">Start Game</button>
         </div>
         <div ng-app="starter">
           <button class="button button-block" ng-click="vm.start()">Load Game</button>
@@ -12,9 +12,9 @@
         <div ng-app="starter">
           <button class="button button-block">Settings</button>
         </div>
-        <!--<div ng-app="starter">
-          <button class="button button-block" data-component="looting">Loot Test</button>
-        </div>-->
+        <div ng-app="starter">
+          <button class="button button-block" ng-click="vm.getLoot()">Loot Test</button>
+        </div>
       </div>
 
       <content>

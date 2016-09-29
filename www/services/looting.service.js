@@ -3,11 +3,11 @@
   angular.module('starter')
       .service('Looting', Looting);
 
-  function Looting() {
+  function Looting(User) {
       var self = this;
       self.latestRoll = null;
-      self.playerData = [];
-    
+      self.playerData = User.playerData;
+
       // FUNCTIONS
       self.getLoot = getLoot;
       self.lootRoll = lootRoll;
@@ -15,15 +15,17 @@
 
       function getLoot () {
           var self = this;
+
           self.lootRoll();
+          User.playerData.update(self.playerData);
       }
-  
+
       function lootRoll() {
-          /*RAND CHOICE FOR LOOT, uses 2-12 range with odd increase to 7*/
+          /*RAND CHOICE FOR LOOT change to, uses 2-12 range with odd increase to 7*/
           var self = this;
           var d1 = Math.floor(Math.random() * 6) + 1;
           var d2 = Math.floor(Math.random() * 6) + 1;
-        
+
           self.latestRoll = d1 + d2;
           self.lootPick(self.latestRoll);
       }
@@ -67,7 +69,7 @@
                     break;
               }
           }
-    
+
           /*CHECK IF PLAYER ALREADY HAS OBJECT*/
           function containsObject(obj, list) {
               var x;
@@ -78,23 +80,25 @@
               }
               return false;
           }
-    
+
           /*UPDATE THE AMOUNT OF OBJECTS*/
           function updateVal(key, amnt) {
               for (var i in self.playerData) {
-                  if (playerData[i] == key) {
-                      playerData[i].lootCount += amnt;
+                  if (self.playerData[i] == key) {
+                      self.playerData[i].lootCount += amnt;
                       break; //Stop this loop, we found it!
                   }
               }
           }
-      
+
           var contains = containsObject(newLoot, self.playerData);
           if (!(contains)) {
+              if (!self.playerData) {
+                self.playerData = [];
+              }
               self.playerData.push(newLoot);
           }
           updateVal(newLoot, 1);
-          console.log(self.playerData);
       }
   }
 })();

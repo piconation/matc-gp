@@ -1,21 +1,8 @@
  (function() {
   angular.module('starter')
     .controller('loginController', loginController);
-    // .component('login', {
-    //   templateUrl:'templates/login.html',
-    //   controller:loginController,
-    //   controllerAs: 'vm'
-    // })
-    // .config(loginConfig);
 
-  // function loginConfig($stateProvider) {
-  //   $stateProvider.state('login', {
-  //     url: '/login',
-  //     template: "<login></login>"
-  //   });
-  // }
-
-  function loginController(User) {
+  function loginController(User, Game, Looting) {
     // component properties
     var vm = this;
     vm.showLogin = false;
@@ -30,6 +17,8 @@
     vm.login = login;
     vm.loginWithEmail = loginWithEmail;
     vm.logout = logout;
+    vm.gameStart = gameStart;
+    vm.getLoot = getLoot;
 
     function showEmailLogin() {
       vm.showLogin = !vm.showLogin;
@@ -65,6 +54,14 @@
     function logout() {
       User.logout();
       vm.displayName = undefined;
+    }
+    function gameStart() {
+      console.log("send request to service");
+      Game.gameStart();
+    }
+
+    function getLoot() {
+      Looting.getLoot();
     }
 
     window.fbAsyncInit = function() {
