@@ -95,14 +95,13 @@ button.right {
 }
 
 #loggedIn {
-  color: white;
-  background-color: #453015;
+  color: #8b0000;
   font-weight: 600;
   font-size: 18px;
 }
 
 #logout {
-  background-color: #453015;
+  background-color: #8b0000;
   border-radius: 10px;
   font-size: 18px;
   font-weight: 500;
@@ -137,4 +136,11 @@ button.right {
   font-weight: 700;
   text-align: center;
   margin-top: 35px;
+}
+
+
+.mask {
+  background-color: rgba(255,255,255,0.8);
+  padding: 10px 0px;
+  border-radius: 4px;
 }

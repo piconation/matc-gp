@@ -26,9 +26,11 @@
           <button ng-if="!vm.displayName" class="button button-balanced" id="mailbutton" ng-click="vm.showEmailLogin()">Log in
             with <span class="ion-email"></span>
           </button><br><br>
-          <a ng-if="vm.displayName" id="loggedIn">You are logged in as {{ vm.displayName }}.</a><br>
-          <button id="logout" ng-if="vm.displayName" ng-click="vm.logout()">Click here to log out
-          </button>
+          <div ng-if="vm.displayName" class="mask">
+            <a id="loggedIn">You are logged in as {{ vm.displayName }}.</a><br>
+            <button id="logout" ng-if="vm.displayName" ng-click="vm.logout()">Click here to log out
+            </button>
+          </div>
         </content>
 
         <content ng-show="vm.showLogin">
