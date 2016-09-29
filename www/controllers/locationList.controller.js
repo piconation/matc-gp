@@ -9,6 +9,5 @@
 
   function locationListController(User, $state) {
     var self = this;
-    //self.homebase = this.homebase;
   }
 })();

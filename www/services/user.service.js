@@ -3,7 +3,7 @@
   angular.module('starter')
     .service('User', User);
 
-  function User($firebaseAuth, $firebaseObject, $log, $q) {
+  function User($firebaseAuth, $firebaseObject, $firebaseArray, $log, $q) {
 
     // User properties
     var self = this;
@@ -17,7 +17,10 @@
 
     var userData = JSON.parse(localStorage.getItem('firebase:authUser:AIzaSyD8yymwpm2Vdn3-iZ_xhDqSpyuqzlKNTSo:[DEFAULT]'));
     self.displayName = userData ? userData.displayName || userData.email : undefined;
-    self.playerData = userData ? userData.playerData : [];
+    //self.playerData = userData ? userData.playerData : [];
+
+    var ref = firebase.database().ref().child("playerData");
+    self.playerData = $firebaseArray(ref);
 
     // login with third-party provider
     function login(provider) {
