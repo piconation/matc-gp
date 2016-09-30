@@ -64,10 +64,11 @@
       //Game.gameStart();
       if (!User.playerData) {
         console.log('No player data.');
-        vm.showConfirm();
+        $state.go('app.homebase');
       }
       else {
-        console.log(User.playerData)
+        console.log(User.playerData);
+        vm.showConfirm();
       }
     }
 
