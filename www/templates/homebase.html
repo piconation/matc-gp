@@ -1,4 +1,4 @@
-<ion-view title="Homebase">
+<ion-view>
   <ion-content>
     <div>THIS IS YOUR HOMEBASE</div><br>
     <div>
@@ -15,27 +15,12 @@
 
     <span>YOUR MATERIALS:</span><br><br>
 
-    <div ng-repeat="Fuel Level in $ctrl.playerData">{{item.name}} : {{item.Count}}</div>
+    <!--<div ng-repeat="">{{item.name}} : {{item.Count}}</div>-->
 
-    <div ng-repeat="Batteries in $ctrl.playerData">{{item.name}} : {{item.Count}}</div>
-
-    <div ng-repeat="Food in $ctrl.playerData">{{item.name}} : {{item.Count}}</div>
-
-    <div ng-repeat="Wires in $ctrl.playerData">{{item.name}} : {{item.Count}}</div>
-
-    <div ng-repeat="Electronics in $ctrl.playerData">{{item.name}} : {{item.Count}}</div>
-
-    <div ng-repeat="Med Kits in $ctrl.playerData">{{item.name}} : {{item.Count}}</div>
-
-    <div ng-repeat="Metal in $ctrl.playerData">{{item.name}} : {{item.Count}}</div>
-
-    <div ng-repeat="Wood in $ctrl.playerData">{{item.name}} : {{item.Count}}</div>
     <br>
     <div>
-      <button class="leftmost" data-component="looting">SEARCH</button>
+      <button class="leftmost" ng-click="hb.getLoot()">SCAVENGE</button>
       <button class="buildbutton">BUILD</button>
-      <button class="sleepy">SLEEP</button>
-      <button class="hungry">EAT</button>
     </div>
   </ion-content>
 </ion-view>
