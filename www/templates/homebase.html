@@ -1,19 +1,41 @@
 <ion-view title="Homebase">
   <ion-content>
     <div>THIS IS YOUR HOMEBASE</div><br>
-
-    <div>Your homebase is at {{level.count}}</div><br>
+    <div>
+      Insert flavor text here.
+      Bacon filet mignon pork,
+      corned beef spare ribs t-bone pork loin kielbasa prosciutto jerky.
+      Sirloin pork loin kielbasa short loin corned beef filet mignon
+      swine pork chop shank tenderloin, ribeye pastrami turkey ham
+      kielbasa corned beef. beef alcatra turducken. Pork ribeye pastrami,
+      chicken shank filet mignon short loin turducken beef ribs spare ribs
+      beef hamburger turkey drumstick beef sausage ground round ham hock
+      filet mignon prosciutto porchetta meatball.
+    </div><br>
 
     <span>YOUR MATERIALS:</span><br><br>
 
-    <div ng-repeat="item in fl.playerData">
-      <div>{{item.name}}: {{item.lootCount}}</div>
-    </div><br>
+    <div ng-repeat="Fuel Level in $ctrl.playerData">{{item.name}} : {{item.Count}}</div>
+
+    <div ng-repeat="Batteries in $ctrl.playerData">{{item.name}} : {{item.Count}}</div>
+
+    <div ng-repeat="Food in $ctrl.playerData">{{item.name}} : {{item.Count}}</div>
+
+    <div ng-repeat="Wires in $ctrl.playerData">{{item.name}} : {{item.Count}}</div>
+
+    <div ng-repeat="Electronics in $ctrl.playerData">{{item.name}} : {{item.Count}}</div>
+
+    <div ng-repeat="Med Kits in $ctrl.playerData">{{item.name}} : {{item.Count}}</div>
+
+    <div ng-repeat="Metal in $ctrl.playerData">{{item.name}} : {{item.Count}}</div>
+
+    <div ng-repeat="Wood in $ctrl.playerData">{{item.name}} : {{item.Count}}</div>
+    <br>
     <div>
-      <button data-component="getLoot()">SCAVENGE</button>
-      <button data-component="build()">BUILD</button>
-      <button data-component="sleep()">SLEEP</button>
-      <button data-component="eat()">EAT</button>
+      <button class="leftmost" data-component="looting">SEARCH</button>
+      <button class="buildbutton">BUILD</button>
+      <button class="sleepy">SLEEP</button>
+      <button class="hungry">EAT</button>
     </div>
   </ion-content>
 </ion-view>

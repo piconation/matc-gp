@@ -144,3 +144,24 @@ button.right {
   padding: 10px 0px;
   border-radius: 4px;
 }
+
+.leftmost {
+  background-color: rgba(66, 255, 136, 0.86);
+  border: solid;
+
+}
+
+.buildbutton {
+  background-color: rgba(66, 255, 136, 0.86);
+  border: solid;
+}
+
+.sleepy {
+  background-color: rgba(66, 255, 136, 0.86);
+  border: solid;
+}
+
+.hungry {
+  background-color: rgba(66, 255, 136, 0.86);
+  border: solid;
+}
