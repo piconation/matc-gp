@@ -15,7 +15,9 @@
 
     <span>YOUR MATERIALS:</span><br><br>
 
-    <!--<div ng-repeat="">{{item.name}} : {{item.Count}}</div>-->
+    <div ng-repeat="item in fl.playerData">
+      {{item.name}}: {{item.lootCount}}
+    </div>
 
     <br>
     <div>
