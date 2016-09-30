@@ -10,6 +10,7 @@
   function homebaseController(User, $state, Looting) {
     var hb = this;
     hb.getLoot = getLoot;
+    hb.playerData = User.playerData;
     
     function getLoot() {
       Looting.getLoot();
