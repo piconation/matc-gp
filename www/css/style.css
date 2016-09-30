@@ -145,27 +145,17 @@ button.right {
   border-radius: 4px;
 }
 
-.leftmost {
-  background-color: rgba(66, 255, 136, 0.86);
-  border: solid;
+.button {
+  background-color: rgba();
+  border-radius: 5px;
 
-}
-
-.buildbutton {
-  background-color: rgba(66, 255, 136, 0.86);
-  border: solid;
-}
-
-.sleepy {
-  background-color: rgba(66, 255, 136, 0.86);
-  border: solid;
-}
-
-.hungry {
-  background-color: rgba(66, 255, 136, 0.86);
-  border: solid;
 }
 
 .homebase {
-  padding-top: 59px;
+  padding-top: 15px;
+}
+
+.scroll{
+  padding: 0px 15px;
+  /*background-color: rgba(111, 255, 132, 0.79);*/
 }
