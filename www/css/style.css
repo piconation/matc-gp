@@ -145,17 +145,14 @@ button.right {
   border-radius: 4px;
 }
 
-.button {
-  background-color: rgba();
-  border-radius: 5px;
-
-}
-
 .homebase {
   padding-top: 15px;
 }
 
 .scroll{
   padding: 0px 15px;
-  /*background-color: rgba(111, 255, 132, 0.79);*/
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  margin: 0 auto;
+  max-width: 420px;
 }
