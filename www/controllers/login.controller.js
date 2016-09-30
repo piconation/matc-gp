@@ -22,6 +22,7 @@
     vm.loadGame = loadGame;
     vm.showConfirm = showConfirm;
     vm.loadConfirm = loadConfirm;
+    
 
     function showEmailLogin() {
       vm.showLogin = !vm.showLogin;

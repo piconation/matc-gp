@@ -7,8 +7,12 @@
   angular.module('starter')
     .controller('homebaseController', homebaseController);
 
-  function homebaseController(User, $state) {
-    var self = this;
-    //self.homebase = this.homebase;
+  function homebaseController(User, $state, Looting) {
+    var hb = this;
+    hb.getLoot = getLoot;
+    
+    function getLoot() {
+      Looting.getLoot();
+    }
   }
 })();

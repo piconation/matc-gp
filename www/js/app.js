@@ -55,7 +55,8 @@ angular.module('starter', ['ionic', 'firebase'])
        views: {
          'menuContent': {
            templateUrl: "templates/homebase.html",
-           controller: 'homebaseController'
+           controller: 'homebaseController',
+           controllerAs: 'hb'
          }
        }
     })
