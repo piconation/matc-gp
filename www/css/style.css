@@ -165,3 +165,7 @@ button.right {
   background-color: rgba(66, 255, 136, 0.86);
   border: solid;
 }
+
+.homebase {
+  padding-top: 59px;
+}
