@@ -2,20 +2,12 @@
   <ion-content>
     <div class="homebase">THIS IS YOUR HOMEBASE</div><br>
     <div>
-      Insert flavor text here.
-      Bacon filet mignon pork,
-      corned beef spare ribs t-bone pork loin kielbasa prosciutto jerky.
-      Sirloin pork loin kielbasa short loin corned beef filet mignon
-      swine pork chop shank tenderloin, ribeye pastrami turkey ham
-      kielbasa corned beef. beef alcatra turducken. Pork ribeye pastrami,
-      chicken shank filet mignon short loin turducken beef ribs spare ribs
-      beef hamburger turkey drumstick beef sausage ground round ham hock
-      filet mignon prosciutto porchetta meatball.
+      Your homebase is a shanty and very simple. Four walls, a roof and a door. That's all you's gots. You need to scavenge so you can build it up and make it awesomer.
     </div><br>
 
     <span>YOUR MATERIALS:</span><br><br>
 
-    <div ng-repeat="item in fl.playerData">
+    <div ng-repeat="item in hb.playerData">
       {{item.name}}: {{item.lootCount}}
     </div>
 
