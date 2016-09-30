@@ -86,7 +86,7 @@
               if (!User.playerData) {
                 User.playerData = [];
               }
-              //User.playerData.$bindTo(newLoot);
+              User.playerData.push(newLoot);
               //User.updatePlayerData();
           }
 
