@@ -39,14 +39,14 @@ var loot = [
     "max": 0
   },
   {
-    "name": "tools",
+    "name": "water",
     "lid": 5,
     "lootCount": 0,
     "min": 0,
     "max": 0
   },
   {
-    "name": "water",
+    "name": "tools",
     "lid": 6,
     "lootCount": 0,
     "min": 0,

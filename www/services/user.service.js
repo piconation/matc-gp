@@ -96,7 +96,7 @@
     }
 
     function updatePlayerData() {
-      self.playerData.set(self.playerData);
+      
     }
 
   }
