@@ -6,9 +6,10 @@
   angular.module('starter')
     .controller('menuController', menuController);
 
-  function menuController(locationList) {
+  function menuController(locationList, User) {
     // variables
     var loc = this;
+    loc.inventory=User.playerData;
 
     loc.navigation = locationList.locations;
   }
