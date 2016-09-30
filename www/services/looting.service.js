@@ -100,7 +100,7 @@
             }
           }
           updateVal(newLoot, 1);
-          console.log(newLoot);
+          //console.log(newLoot);
       }
   }
 })();
