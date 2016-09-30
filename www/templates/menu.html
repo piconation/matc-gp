@@ -38,8 +38,11 @@
     </ion-header-bar>
     <ion-content class="right-menu">
       <ion-list>
-        <ion-item menu-close ng-click="login()">
+        <ion-item menu-close>
           Player Inventory: <div ng-show="vm.displayName"></div>
+        </ion-item>
+        <ion-item ng-repeat="item in vm.inventory">
+         <div> {{item.name}}. You now have {{item.lootCount}} {{item.name}}.</div>
         </ion-item>
       </ion-list>
     </ion-content>
