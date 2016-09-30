@@ -92,7 +92,7 @@
     }
 
     function loadGame() {
-      if (!User.playerData) {
+      if (User.playerData) {
         console.log('After player data.');
         //go to game screen(homebase JS).
         vm.loadConfirm();
