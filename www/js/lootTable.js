@@ -8,7 +8,8 @@ var loot = [
     "lid": 0,
     "lootCount": 1,
     "min": 0,
-    "max": 0
+    "max": 0,
+    "icon": "ion-settings"
   },
   {
     "name": "batteries",
@@ -16,6 +17,7 @@ var loot = [
     "lootCount": 1,
     "min": 0,
     "max": 0
+    "icon": "ion-battery-charging"
   },
   {
     "name": "medkit",
@@ -23,6 +25,7 @@ var loot = [
     "lootCount": 1,
     "min": 0,
     "max": 0
+    "icon": "ion-medkit"
   },
   {
     "name": "fuel",

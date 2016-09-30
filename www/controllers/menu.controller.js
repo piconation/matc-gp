@@ -8,9 +8,9 @@
 
   function menuController(locationList, User) {
     // variables
-    var loc = this;
-    loc.inventory=User.playerData;
+    var menu = this;
+    menu.inventory=User.playerData;
 
-    loc.navigation = locationList.locations;
+    menu.navigation = locationList.locations;
   }
 })();

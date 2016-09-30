@@ -39,10 +39,10 @@
     <ion-content class="right-menu">
       <ion-list>
         <ion-item menu-close>
-          Player Inventory: <div ng-show="vm.displayName"></div>
+          Player Inventory: <div ng-show="menu.displayName"></div>
         </ion-item>
-        <ion-item ng-repeat="item in vm.inventory">
-         <div> {{item.name}}. You now have {{item.lootCount}} {{item.name}}.</div>
+        <ion-item ng-repeat="item in menu.inventory">
+         <div> <span class="{{item.icon}}"></span>{{item.name}} :{{item.lootCount}}</div>
         </ion-item>
       </ion-list>
     </ion-content>
